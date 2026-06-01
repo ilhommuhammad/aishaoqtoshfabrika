@@ -225,7 +225,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
   <p class="sub" style="margin-bottom:16px">Zakazlardan tushgan barcha kirimlar</p>
   <div style="width:100%;max-width:960px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <input id="a-toquv-kirim-search" placeholder="Qidirish..." oninput="filterAToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;justify-content:space-between;align-items:center;width:100%;max-width:960px;margin-bottom:16px"><input id="a-toquv-kirim-search" placeholder="Qidirish..." oninput="filterAToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/><button onclick="exportKirim_aToquvKirim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button></div>
       <div style="display:flex;gap:16px">
         <div style="background:#1e1b4b;border-radius:10px;padding:8px 16px;text-align:center">
           <div style="font-size:11px;color:#818cf8;margin-bottom:2px">Jami Br</div>
@@ -271,7 +271,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
   <div style="width:100%;max-width:960px;margin-top:8px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
       <input id="a-toquv-kunlik-search" placeholder="Qidirish..." oninput="filter_aToquvChiqim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
-      <button onclick="openAdd_aToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button>
+      <div style="display:flex;gap:10px"><button onclick="exportChiqim_aToquvChiqim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button><button onclick="openAdd_aToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button></div>
     </div>
     <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
       <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
@@ -339,8 +339,8 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
     <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
   </div>
   <div class="title">Aisha Toquv Ostatka</div>
-  <p class="sub" style="margin-bottom:20px">Kirim - Chiqim = Ostatka (avtomatik)</p>
-  <div style="width:100%;max-width:960px">
+  <p class="sub" style="margin-bottom:12px">Kirim - Chiqim = Ostatka (avtomatik)</p>
+  <div style="width:100%;max-width:960px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><input id="a-toquv-ostatka-search" placeholder="Qidirish..." oninput="filterOstatka_aToquvOstatka()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/><button onclick="exportOstatka_aToquvOstatka()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button></div>
     <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
       <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
         <thead>
@@ -349,7 +349,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <th rowspan="2" style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz</th>
             <th colspan="3" style="padding:10px;color:#818cf8;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#1e1b4b">Aisha To'quv kirim</th>
             <th colspan="3" style="padding:10px;color:#f59e0b;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Aisha To'quv Ostatka</th>
-            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Aisha To'quv kunlik chiqim</th>
+            <th colspan="4" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Aisha To'quv kunlik chiqim</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Br</th>
@@ -361,6 +361,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th>
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th>
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+            <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Rulon</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45;font-weight:700">
             <td colspan="2" style="padding:12px 10px;color:#64748b;font-size:12px;letter-spacing:0.05em;border-right:1px solid #2a2a45">JAMI:</td>
@@ -373,9 +374,9 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <td id="a-toquv-ostatka-ch-br" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
             <td id="a-toquv-ostatka-ch-nt" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
             <td id="a-toquv-ostatka-ch-sht" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
+            <td id="a-toquv-ostatka-ch-rulon" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
           </tr>
-        </thead>
-        <tbody id="a-toquv-ostatka-tbody">
+        </thead>        <tbody id="a-toquv-ostatka-tbody">
           <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Ma'lumot yuklanmoqda...</td></tr>
         </tbody>
 
@@ -435,7 +436,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
   <p class="sub" style="margin-bottom:16px">Zakazlardan tushgan barcha kirimlar</p>
   <div style="width:100%;max-width:960px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
-      <input id="o-toquv-kirim-search" placeholder="Qidirish..." oninput="filterOToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;justify-content:space-between;align-items:center;width:100%;max-width:960px;margin-bottom:16px"><input id="o-toquv-kirim-search" placeholder="Qidirish..." oninput="filterOToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/><button onclick="exportKirim_oToquvKirim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button></div>
       <div style="display:flex;gap:16px">
         <div style="background:#134e4a;border-radius:10px;padding:8px 16px;text-align:center">
           <div style="font-size:11px;color:#2dd4bf;margin-bottom:2px">Jami Br</div>
@@ -481,7 +482,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
   <div style="width:100%;max-width:960px;margin-top:8px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
       <input id="o-toquv-kunlik-search" placeholder="Qidirish..." oninput="filter_oToquvChiqim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
-      <button onclick="openAdd_oToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button>
+      <div style="display:flex;gap:10px"><button onclick="exportChiqim_oToquvChiqim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button><button onclick="openAdd_oToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button></div>
     </div>
     <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
       <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
@@ -549,17 +550,17 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
     <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
   </div>
   <div class="title">Oqtosh Toquv Ostatka</div>
-  <p class="sub" style="margin-bottom:20px">Kirim - Chiqim = Ostatka (avtomatik)</p>
-  <div style="width:100%;max-width:960px">
+  <p class="sub" style="margin-bottom:12px">Kirim - Chiqim = Ostatka (avtomatik)</p>
+  <div style="width:100%;max-width:960px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><input id="o-toquv-ostatka-search" placeholder="Qidirish..." oninput="filterOstatka_oToquvOstatka()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/><button onclick="exportOstatka_oToquvOstatka()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button></div>
     <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
       <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
         <thead>
           <tr style="background:#1a1a30;border-bottom:1px solid #2a2a45">
             <th rowspan="2" style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45">№</th>
             <th rowspan="2" style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz</th>
-            <th colspan="3" style="padding:10px;color:#2dd4bf;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Oqtosh To'quv kirim</th>
+            <th colspan="3" style="padding:10px;color:#818cf8;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Oqtosh To'quv kirim</th>
             <th colspan="3" style="padding:10px;color:#f59e0b;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Oqtosh To'quv Ostatka</th>
-            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Oqtosh To'quv kunlik chiqim</th>
+            <th colspan="4" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Oqtosh To'quv kunlik chiqim</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#134e4a">Br</th>
@@ -571,21 +572,22 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th>
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th>
             <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+            <th style="padding:10px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Rulon</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45;font-weight:700">
             <td colspan="2" style="padding:12px 10px;color:#64748b;font-size:12px;letter-spacing:0.05em;border-right:1px solid #2a2a45">JAMI:</td>
-            <td id="o-toquv-ostatka-k-br" style="padding:12px 10px;text-align:center;color:#2dd4bf;font-size:15px;background:#134e4a">0</td>
-            <td id="o-toquv-ostatka-k-nt" style="padding:12px 10px;text-align:center;color:#2dd4bf;font-size:15px;background:#134e4a">0</td>
-            <td id="o-toquv-ostatka-k-sht" style="padding:12px 10px;text-align:center;color:#2dd4bf;font-size:15px;border-right:1px solid #2a2a45;background:#134e4a">0</td>
+            <td id="o-toquv-ostatka-k-br" style="padding:12px 10px;text-align:center;color:#818cf8;font-size:15px;background:#134e4a">0</td>
+            <td id="o-toquv-ostatka-k-nt" style="padding:12px 10px;text-align:center;color:#818cf8;font-size:15px;background:#134e4a">0</td>
+            <td id="o-toquv-ostatka-k-sht" style="padding:12px 10px;text-align:center;color:#818cf8;font-size:15px;border-right:1px solid #2a2a45;background:#134e4a">0</td>
             <td id="o-toquv-ostatka-o-br" style="padding:12px 10px;text-align:center;color:#f59e0b;font-size:15px;background:#2a2000">0</td>
             <td id="o-toquv-ostatka-o-nt" style="padding:12px 10px;text-align:center;color:#f59e0b;font-size:15px;background:#2a2000">0</td>
             <td id="o-toquv-ostatka-o-sht" style="padding:12px 10px;text-align:center;color:#f59e0b;font-size:15px;border-right:1px solid #2a2a45;background:#2a2000">0</td>
             <td id="o-toquv-ostatka-ch-br" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
             <td id="o-toquv-ostatka-ch-nt" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
             <td id="o-toquv-ostatka-ch-sht" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
+            <td id="o-toquv-ostatka-ch-rulon" style="padding:12px 10px;text-align:center;color:#f87171;font-size:15px;background:#2a0a0a">0</td>
           </tr>
-        </thead>
-        <tbody id="o-toquv-ostatka-tbody">
+        </thead>        <tbody id="o-toquv-ostatka-tbody">
           <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Ma'lumot yuklanmoqda...</td></tr>
         </tbody>
 
@@ -1028,6 +1030,24 @@ async function exportToExcel(){
   });
   jRow.getCell(2).alignment={horizontal:"left",vertical:"middle"};
 
+  // Jami qatori
+  var jamiVals=headers.map(function(h,hi){
+    if(hi===0) return '';
+    if(hi===1) return 'JAMI:';
+    var allNums=rows_data.every(function(r){return typeof h.get(r,0)==='number';});
+    if(allNums) return rows_data.reduce(function(s,r,i){var v=h.get(r,i);return s+(typeof v==='number'?v:0);},0);
+    return '';
+  });
+  var jRow=ws.addRow(jamiVals);
+  jRow.height=22;
+  jRow.eachCell(function(cell){
+    cell.font={bold:true,size:11,name:'Calibri'};
+    cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFE2E8F0'}};
+    cell.alignment={horizontal:'center',vertical:'middle'};
+    cell.border={top:{style:'medium',color:{argb:'FF4A5568'}},bottom:{style:'medium',color:{argb:'FF4A5568'}},left:{style:'thin'},right:{style:'thin'}};
+  });
+  jRow.getCell(2).alignment={horizontal:'left',vertical:'middle'};
+
   var buf=await wb.xlsx.writeBuffer();
   var blob=new Blob([buf],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
   var url=URL.createObjectURL(blob);
@@ -1346,6 +1366,7 @@ function renderOstatka_aToquvOstatka(){
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chBr+'</td>'+
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chNt+'</td>'+
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chSht+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fda4af">'+(r.chRulon||0)+'</td>'+
       '</tr>';
   }).join('');
 
@@ -1414,6 +1435,7 @@ function renderOstatka_oToquvOstatka(){
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chBr+'</td>'+
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chNt+'</td>'+
       '<td style="padding:10px;text-align:center;color:#fca5a5">'+r.chSht+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fda4af">'+(r.chRulon||0)+'</td>'+
       '</tr>';
   }).join('');
 
@@ -1609,6 +1631,194 @@ function renderChiqim_oToquvChiqim(rows){
   tbody.innerHTML=rows.map(function(r,i){
     return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">+'+(r.rulon_soni||r.rulon||0)+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px">'+r.vaqt+'</td><td style="padding:10px;text-align:center;color:#818cf8">Xom Ombor</td><td style="padding:10px;text-align:center"><button onclick="rows_oToquvChiqim.splice('+i+',1);renderChiqim_oToquvChiqim(rows_oToquvChiqim)" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">O&#39;ch</button></td></tr>';
   }).join('');
+}
+
+
+// Kirim export
+
+async function excelExport(title, headers, rows_data, filename){
+  if(!rows_data||rows_data.length===0){alert("Ma'lumot yo'q!");return;}
+  var d=new Date(),uz=new Date(d.getTime()+5*60*60*1000),iso=uz.toISOString();
+  var ds=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4);
+
+  var wb=new ExcelJS.Workbook();
+  var ws=wb.addWorksheet(title.substring(0,31));
+
+  var colCount=headers.length;
+  var colKeys='ABCDEFGHIJKL'.split('');
+
+  ws.columns=headers.map(function(h,i){return {key:colKeys[i], width:h.width||16};});
+
+  // Row 1 - title
+  ws.mergeCells('A1:'+colKeys[colCount-1]+'1');
+  var r1=ws.getCell('A1');
+  r1.value=title; r1.font={bold:true,size:14,color:{argb:'FFFFFFFF'},name:'Calibri'};
+  r1.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF2D3748'}};
+  r1.alignment={horizontal:'center',vertical:'middle'};
+  ws.getRow(1).height=28;
+
+  // Row 2 - date
+  ws.mergeCells('A2:'+colKeys[colCount-1]+'2');
+  var r2=ws.getCell('A2');
+  r2.value='Sana: '+ds; r2.font={italic:true,size:11,color:{argb:'FF2D3748'},name:'Calibri'};
+  r2.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFD6E4F0'}};
+  r2.alignment={horizontal:'center',vertical:'middle'};
+  ws.getRow(2).height=20;
+
+  ws.addRow([]);ws.getRow(3).height=6;
+
+  // Row 4 - headers
+  var hRow=ws.addRow(headers.map(function(h){return h.label;}));
+  hRow.height=22;
+  hRow.eachCell(function(cell){
+    cell.font={bold:true,size:11,color:{argb:'FFFFFFFF'},name:'Calibri'};
+    cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF4A5568'}};
+    cell.alignment={horizontal:'center',vertical:'middle'};
+    cell.border={top:{style:'medium'},bottom:{style:'medium'},left:{style:'thin'},right:{style:'thin'}};
+  });
+
+  // Data rows
+  rows_data.forEach(function(r,i){
+    var vals=headers.map(function(h){return h.get(r,i);});
+    var row=ws.addRow(vals);
+    row.height=18;
+    var bg=i%2===0?'FFFFFFFF':'FFEBF5FB';
+    row.eachCell(function(cell,col){
+      cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:bg}};
+      cell.font={size:11,name:'Calibri'};
+      cell.alignment={horizontal:col===2?'left':'center',vertical:'middle'};
+      cell.border={top:{style:'hair',color:{argb:'FFCCCCCC'}},bottom:{style:'hair',color:{argb:'FFCCCCCC'}},left:{style:'thin',color:{argb:'FFDDDDDD'}},right:{style:'thin',color:{argb:'FFDDDDDD'}}};
+    });
+  });
+
+  // Jami qatori
+  var jamiVals=headers.map(function(h,hi){
+    if(hi===0) return '';
+    if(hi===1) return 'JAMI:';
+    var allNums=rows_data.every(function(r){return typeof h.get(r,0)==='number';});
+    if(allNums) return rows_data.reduce(function(s,r,i){var v=h.get(r,i);return s+(typeof v==='number'?v:0);},0);
+    return '';
+  });
+  var jRow=ws.addRow(jamiVals);
+  jRow.height=22;
+  jRow.eachCell(function(cell){
+    cell.font={bold:true,size:11,name:'Calibri'};
+    cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFE2E8F0'}};
+    cell.alignment={horizontal:'center',vertical:'middle'};
+    cell.border={top:{style:'medium',color:{argb:'FF4A5568'}},bottom:{style:'medium',color:{argb:'FF4A5568'}},left:{style:'thin'},right:{style:'thin'}};
+  });
+  jRow.getCell(2).alignment={horizontal:'left',vertical:'middle'};
+
+  var buf=await wb.xlsx.writeBuffer();
+  var blob=new Blob([buf],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement('a');
+  a.href=url; a.download=filename+'_'+ds+'.xlsx';
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
+// Kirim export - ExcelJS
+async function exportKirim_aToquvKirim(){
+  await excelExport("Aisha To'quv Kirim",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz nomi',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:12,get:function(r){return +r.br||0;}},
+     {label:'Nt',width:12,get:function(r){return +r.nt||0;}},
+     {label:'Sht',width:12,get:function(r){return +r.sht||0;}},
+     {label:'Tushgan sana',width:22,get:function(r){return (r.tushgan_sana||'').replace(' (UZT)','');}},
+     {label:'Srok',width:14,get:function(r){return r.srok||'';}},
+     {label:"Mas'ul",width:15,get:function(r){return r.masul||'';}}],
+    rows_zakazlar,"Aisha_Toquv_Kirim");
+}
+async function exportKirim_oToquvKirim(){
+  await excelExport("Oqtosh To'quv Kirim",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz nomi',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:12,get:function(r){return +r.br||0;}},
+     {label:'Nt',width:12,get:function(r){return +r.nt||0;}},
+     {label:'Sht',width:12,get:function(r){return +r.sht||0;}},
+     {label:'Tushgan sana',width:22,get:function(r){return (r.tushgan_sana||'').replace(' (UZT)','');}},
+     {label:'Srok',width:14,get:function(r){return r.srok||'';}},
+     {label:"Mas'ul",width:15,get:function(r){return r.masul||'';}}],
+    rows_zakazlar,"Oqtosh_Toquv_Kirim");
+}
+
+async function exportChiqim_aToquvChiqim(){
+  await excelExport("Aisha To'quv Kunlik Chiqim",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz nomi',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:12,get:function(r){return +r.br||0;}},
+     {label:'Nt',width:12,get:function(r){return +r.nt||0;}},
+     {label:'Sht',width:12,get:function(r){return +r.sht||0;}},
+     {label:'Rulon soni',width:13,get:function(r){return +(r.rulon_soni||r.rulon)||0;}},
+     {label:'Chiqim vaqti',width:20,get:function(r){return r.vaqt||'';}},
+     {label:'Qaerga',width:20,get:function(r){return r.qaerga||'Aisha Xom Ombor';}}],
+    rows_aToquvChiqim,"Aisha_Toquv_Chiqim");
+}
+async function exportChiqim_oToquvChiqim(){
+  await excelExport("Oqtosh To'quv Kunlik Chiqim",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz nomi',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:12,get:function(r){return +r.br||0;}},
+     {label:'Nt',width:12,get:function(r){return +r.nt||0;}},
+     {label:'Sht',width:12,get:function(r){return +r.sht||0;}},
+     {label:'Rulon soni',width:13,get:function(r){return +(r.rulon_soni||r.rulon)||0;}},
+     {label:'Chiqim vaqti',width:20,get:function(r){return r.vaqt||'';}},
+     {label:'Qaerga',width:20,get:function(r){return r.qaerga||'Oqtosh Xom Ombor';}}],
+    rows_oToquvChiqim,"Oqtosh_Toquv_Chiqim");
+}
+async function exportOstatka_aToquvOstatka(){
+  var kirim=rows_zakazlar||[];
+  var allCh=(rows_aToquvChiqim||[]).concat(rows_oToquvChiqim||[]);
+  var result=kirim.map(function(k,i){
+    var ch=allCh.filter(function(c){return c.nomi===k.nomi;});
+    var cBr=ch.reduce(function(s,c){return s+(+c.br||0);},0);
+    var cNt=ch.reduce(function(s,c){return s+(+c.nt||0);},0);
+    var cSht=ch.reduce(function(s,c){return s+(+c.sht||0);},0);
+    var cR=ch.reduce(function(s,c){return s+(+(c.rulon_soni||c.rulon)||0);},0);
+    return {nomi:k.nomi,kBr:+k.br||0,kNt:+k.nt||0,kSht:+k.sht||0,oBr:(+k.br||0)-cBr,oNt:(+k.nt||0)-cNt,oSht:(+k.sht||0)-cSht,cBr:cBr,cNt:cNt,cSht:cSht,cR:cR};
+  });
+  await excelExport("Aisha To'quv Ostatka",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz',width:25,get:function(r){return r.nomi;}},
+     {label:'Kirim Br',width:11,get:function(r){return r.kBr;}},
+     {label:'Kirim Nt',width:11,get:function(r){return r.kNt;}},
+     {label:'Kirim Sht',width:11,get:function(r){return r.kSht;}},
+     {label:'Ostatka Br',width:12,get:function(r){return r.oBr;}},
+     {label:'Ostatka Nt',width:12,get:function(r){return r.oNt;}},
+     {label:'Ostatka Sht',width:12,get:function(r){return r.oSht;}},
+     {label:'Chiqim Br',width:11,get:function(r){return r.cBr;}},
+     {label:'Chiqim Nt',width:11,get:function(r){return r.cNt;}},
+     {label:'Chiqim Sht',width:11,get:function(r){return r.cSht;}},
+     {label:'Rulon',width:10,get:function(r){return r.cR;}}],
+    result,"Aisha_Toquv_Ostatka");
+}
+async function exportOstatka_oToquvOstatka(){
+  var kirim=rows_zakazlar||[];
+  var allCh=(rows_aToquvChiqim||[]).concat(rows_oToquvChiqim||[]);
+  var result=kirim.map(function(k,i){
+    var ch=allCh.filter(function(c){return c.nomi===k.nomi;});
+    var cBr=ch.reduce(function(s,c){return s+(+c.br||0);},0);
+    var cNt=ch.reduce(function(s,c){return s+(+c.nt||0);},0);
+    var cSht=ch.reduce(function(s,c){return s+(+c.sht||0);},0);
+    var cR=ch.reduce(function(s,c){return s+(+(c.rulon_soni||c.rulon)||0);},0);
+    return {nomi:k.nomi,kBr:+k.br||0,kNt:+k.nt||0,kSht:+k.sht||0,oBr:(+k.br||0)-cBr,oNt:(+k.nt||0)-cNt,oSht:(+k.sht||0)-cSht,cBr:cBr,cNt:cNt,cSht:cSht,cR:cR};
+  });
+  await excelExport("Oqtosh To'quv Ostatka",
+    [{label:'#',width:5,get:function(r,i){return i+1;}},
+     {label:'Zakaz',width:25,get:function(r){return r.nomi;}},
+     {label:'Kirim Br',width:11,get:function(r){return r.kBr;}},
+     {label:'Kirim Nt',width:11,get:function(r){return r.kNt;}},
+     {label:'Kirim Sht',width:11,get:function(r){return r.kSht;}},
+     {label:'Ostatka Br',width:12,get:function(r){return r.oBr;}},
+     {label:'Ostatka Nt',width:12,get:function(r){return r.oNt;}},
+     {label:'Ostatka Sht',width:12,get:function(r){return r.oSht;}},
+     {label:'Chiqim Br',width:11,get:function(r){return r.cBr;}},
+     {label:'Chiqim Nt',width:11,get:function(r){return r.cNt;}},
+     {label:'Chiqim Sht',width:11,get:function(r){return r.cSht;}},
+     {label:'Rulon',width:10,get:function(r){return r.cR;}}],
+    result,"Oqtosh_Toquv_Ostatka");
 }
 
 function show(id){
