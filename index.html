@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Aisha Home AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.page{display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:100vh}
+.page.active{display:flex}
+.back{position:fixed;top:24px;left:24px;color:#64748b;font-size:13px;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color 0.2s;font-family:'Inter',sans-serif}
+.back:hover{color:#fff}
+.title{font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;text-align:center}
+.sub{font-size:14px;color:#64748b;margin-bottom:40px;text-align:center}
+
+/* Bosh sahifa */
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:560px}
+.main-card{background:#16162a;border:1px solid #2a2a45;border-radius:20px;padding:60px 28px;cursor:pointer;transition:border-color 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;border:none}
+.main-card:hover{border:1px solid #6366f1;transform:translateY(-4px)}
+.main-card:active{transform:translateY(-1px)}
+.main-card span{font-size:24px;font-weight:700;color:#fff}
+
+/* Bo'limlar sahifasi */
+.section-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:640px}
+.sec-card{background:#16162a;border:1px solid #2a2a45;border-radius:18px;padding:28px 20px;cursor:pointer;transition:border-color 0.2s,transform 0.15s;display:flex;flex-direction:column;align-items:center;gap:12px;border:1px solid #2a2a45}
+.sec-card:hover{border-color:#6366f1;transform:translateY(-4px)}
+.sec-card:active{transform:translateY(-1px)}
+.icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.icon-purple{background:#1e1b4b}
+.icon-teal{background:#134e4a}
+.sec-title{font-size:14px;font-weight:600;color:#fff;text-align:center}
+</style>
+</head>
+<body>
+
+<!-- BOSH SAHIFA -->
+<div class="page active" id="home">
+  <div class="main-grid">
+    <button class="main-card" style="background:#16162a;border:1px solid #2a2a45;border-radius:20px" onclick="show('aisha')">
+      <span>Aisha</span>
+    </button>
+    <button class="main-card" style="background:#16162a;border:1px solid #2a2a45;border-radius:20px" onclick="show('oqtosh')">
+      <span>Oqtosh</span>
+    </button>
+  </div>
+</div>
+
+<!-- AISHA SAHIFASI -->
+<div class="page" id="aisha">
+  <button class="back" onclick="show('home')">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Orqaga
+  </button>
+  <div class="title">Aisha</div>
+  <p class="sub">Bo'limni tanlang</p>
+  <div class="section-grid">
+
+    <button class="sec-card" onclick="show('zakaz')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+      </div>
+      <div class="sec-title">Zakaz</div>
+    </button>
+
+    <button class="sec-card" onclick="show('toquv')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </div>
+      <div class="sec-title">To'quv</div>
+    </button>
+
+    <button class="sec-card" onclick="show('xom-ombor')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M5 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM19 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0ZM4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12v5M14 12v5"/></svg>
+      </div>
+      <div class="sec-title">Xom Ombor</div>
+    </button>
+
+    <button class="sec-card" onclick="show('partiya')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      </div>
+      <div class="sec-title">Partiya</div>
+    </button>
+
+    <button class="sec-card" onclick="show('boyoq')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 5-5 11-5 11S7 12 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2" fill="#818cf8"/></svg>
+      </div>
+      <div class="sec-title">Bo'yoq</div>
+    </button>
+
+    <button class="sec-card" onclick="show('yarim-tayyor')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6M9 16h3"/></svg>
+      </div>
+      <div class="sec-title">Yarim tayyor Ombor</div>
+    </button>
+
+    <button class="sec-card" onclick="show('chevar1')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg>
+      </div>
+      <div class="sec-title">Chevarxona-1</div>
+    </button>
+
+    <button class="sec-card" onclick="show('chevar2')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg>
+      </div>
+      <div class="sec-title">Chevarxona-2</div>
+    </button>
+
+    <button class="sec-card" onclick="show('tmo')">
+      <div class="icon icon-purple">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+      </div>
+      <div class="sec-title">TMO</div>
+    </button>
+
+  </div>
+</div>
+
+<!-- OQTOSH SAHIFASI -->
+<div class="page" id="oqtosh">
+  <button class="back" onclick="show('home')">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Orqaga
+  </button>
+  <div class="title">Oqtosh</div>
+  <p class="sub">Tez orada...</p>
+</div>
+
+<!-- BO'LIM SAHIFALARI (placeholder) -->
+<div class="page" id="zakaz">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Zakaz</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="toquv">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">To'quv</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="xom-ombor">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Xom Ombor</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="partiya">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Partiya</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="boyoq">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Bo'yoq</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="yarim-tayyor">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Yarim tayyor Ombor</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="chevar1">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Chevarxona-1</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="chevar2">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">Chevarxona-2</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+<div class="page" id="tmo">
+  <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Orqaga</button>
+  <div class="title">TMO</div><p class="sub">Bu bo'lim ishlab chiqilmoqda...</p>
+</div>
+
+<script>
+function show(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
