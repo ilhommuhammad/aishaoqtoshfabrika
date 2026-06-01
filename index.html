@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Aisha Home AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/exceljs@4.3.0/dist/exceljs.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.page{display:none;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:100vh}
+.page.active{display:flex}
+.back{position:relative;align-self:flex-start;margin-bottom:8px;color:#64748b;font-size:13px;background:none;border:1px solid #2a2a45;cursor:pointer;display:flex;align-items:center;gap:6px;transition:color 0.2s;font-family:'Inter',sans-serif;padding:8px 14px;border-radius:10px}
+.back:hover{color:#fff;border-color:#6366f1}
+.nav-btns{display:flex;gap:10px;align-self:flex-start;margin-bottom:16px}
+.home-btn{color:#64748b;font-size:13px;background:none;border:1px solid #2a2a45;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;padding:8px 14px;border-radius:10px;transition:color 0.2s}
+.home-btn:hover{color:#fff;border-color:#6366f1}
+.back:hover{color:#fff}
+.title{font-size:28px;font-weight:700;color:#fff;margin-bottom:8px;text-align:center}
+.sub{font-size:14px;color:#64748b;margin-bottom:40px;text-align:center}
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;width:100%;max-width:560px}
+.main-card{background:#16162a;border:1px solid #2a2a45;border-radius:20px;padding:60px 28px;cursor:pointer;transition:border-color 0.2s,transform 0.15s;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;color:#fff;font-family:'Inter',sans-serif}
+.main-card:hover{border-color:#6366f1;transform:translateY(-4px)}
+.main-card:active{transform:translateY(-1px)}
+.section-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px}
+.sec-card{background:#16162a;border:1px solid #2a2a45;border-radius:18px;padding:28px 16px;cursor:pointer;transition:border-color 0.2s,transform 0.15s;display:flex;flex-direction:column;align-items:center;gap:12px;font-family:'Inter',sans-serif}
+.sec-card:hover{border-color:#2dd4bf;transform:translateY(-4px)}
+.sec-card:active{transform:translateY(-1px)}
+.icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#134e4a}
+.sec-title{font-size:14px;font-weight:600;color:#fff;text-align:center}
+.placeholder{color:#64748b;font-size:15px;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- BOSH SAHIFA -->
+<div class="page active" id="home">
+  <div class="main-grid" style="grid-template-columns:1fr 1fr 1fr;max-width:800px">
+    <button class="main-card" onclick="show('aisha')">Aisha</button>
+    <button class="main-card" onclick="show('oqtosh')">Oqtosh</button>
+    <button class="main-card" onclick="show('zakaz-home')">Zakaz</button>
+  </div>
+</div>
+
+<!-- AISHA -->
+<div class="page" id="aisha">
+  <div class="nav-btns"><button class="back" onclick="show('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button></div>
+  <div class="title">Aisha</div>
+  <p class="sub">Bo'limni tanlang</p>
+  <div style="display:flex;flex-direction:column;gap:16px;width:100%;max-width:680px">
+
+
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-toquv')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha To'quv</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-xom')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12v5M14 12v5"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha Xom Ombor</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-partiya')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha Partiya</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-boyoq')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 5-5 11-5 11S7 12 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2" fill="#818cf8"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha Bo'yoq</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-yarim1')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha Yarim tayyor Ombor</div>
+    </button>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <button class="sec-card" onclick="show('a-chevar1')">
+        <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></div>
+        <div class="sec-title">Aisha Chevarxona-1</div>
+      </button>
+      <button class="sec-card" onclick="show('a-chevar2')">
+        <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></div>
+        <div class="sec-title">Aisha Chevarxona-2</div>
+      </button>
+    </div>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-tmo')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Aisha TMO</div>
+    </button>
+
+  </div>
+</div>
+
+<!-- OQTOSH -->
+<div class="page" id="oqtosh">
+  <div class="nav-btns"><button class="back" onclick="show('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button></div>
+  <div class="title">Oqtosh</div>
+  <p class="sub">Bo'limni tanlang</p>
+  <div style="display:flex;flex-direction:column;gap:16px;width:100%;max-width:680px">
+
+
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('o-toquv')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Oqtosh To'quv</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('o-xom')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12v5M14 12v5"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Oqtosh Xom Ombor</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('o-partiya')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Oqtosh Partiya</div>
+    </button>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('o-boyoq')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5c0 5-5 11-5 11S7 12 7 7a5 5 0 0 1 5-5z"/><circle cx="12" cy="7" r="2" fill="#2dd4bf"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Bo'yoq</div>
+    </button>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <button class="sec-card" onclick="show('o-yarim1')">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+        <div class="sec-title">Oqtosh Yarim tayyor Ombor-1</div>
+      </button>
+      <button class="sec-card" onclick="show('o-yarim2')">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h3"/></svg></div>
+        <div class="sec-title">Oqtosh Yarim tayyor Ombor-2</div>
+      </button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+      <button class="sec-card" onclick="show('o-chevar1')">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></div>
+        <div class="sec-title">Oqtosh Chevarxona-1</div>
+      </button>
+      <button class="sec-card" onclick="show('o-chevar2')">
+        <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></div>
+        <div class="sec-title">Oqtosh Chevarxona-2</div>
+      </button>
+    </div>
+
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('o-tmo')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg></div>
+      <div class="sec-title" style="font-size:16px">TMO</div>
+    </button>
+
+  </div>
+</div>
+
+<!-- AISHA BO'LIMLARI -->
+<div class="page" id="a-zakaz">
+  <div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Zakaz</div>
+  <p class="sub">Turni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:480px">
+    <button class="sec-card" onclick="show('a-zakazlar')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div>
+      <div class="sec-title">Zakazlar</div>
+    </button>
+    <button class="sec-card" onclick="show('a-zakaz-ostatka')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h3"/></svg></div>
+      <div class="sec-title">Zakaz ostatka</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="a-toquv">
+  <div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Aisha To'quv</div>
+  <p class="sub">Bo'limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('a-toquv-kirim')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Aisha To'quv kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('a-toquv-ostatka')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Aisha To'quv ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('a-toquv-kunlik')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <div class="sec-title">Aisha To'quv kunlik chiqim</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="a-toquv-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Aisha To'quv kirim</div>
+  <p class="sub" style="margin-bottom:16px">Zakazlardan tushgan barcha kirimlar</p>
+  <div style="width:100%;max-width:960px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="a-toquv-kirim-search" placeholder="Qidirish..." oninput="filterAToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:16px">
+        <div style="background:#1e1b4b;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#818cf8;margin-bottom:2px">Jami Br</div>
+          <div id="a-kirim-jami-br" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+        <div style="background:#1e1b4b;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#818cf8;margin-bottom:2px">Jami Nt</div>
+          <div id="a-kirim-jami-nt" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+        <div style="background:#1e1b4b;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#818cf8;margin-bottom:2px">Jami Sht</div>
+          <div id="a-kirim-jami-sht" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Tushgan sana</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Srok</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Mas'ul</th>
+          </tr>
+        </thead>
+        <tbody id="a-toquv-kirim-tbody">
+          <tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Zakazlar yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="page" id="a-toquv-kunlik">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Aisha To'quv kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="a-toquv-kunlik-search" placeholder="Qidirish..." oninput="filter_aToquvChiqim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <button onclick="openModal_aToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Rulon soni</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Chiqim vaqti</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaysi bo'limga</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600"></th>
+          </tr>
+        </thead>
+        <tbody id="a-toquv-kunlik-tbody"><tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yo'q</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+  <div id="a-toquv-kunlik-modal" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:100;align-items:center;justify-content:center">
+    <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:520px;margin:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <span style="font-size:16px;font-weight:700;color:#fff">Chiqim qo'shish</span>
+        <button onclick="closeModal_aToquvChiqim()" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:20px">&#x2715;</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nomi <span style="color:#f87171">*</span></label><input id="a-toquv-kunlik-nomi" placeholder="Zakaz nomi" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br <span style="color:#f87171">*</span></label><input id="a-toquv-kunlik-br" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt <span style="color:#f87171">*</span></label><input id="a-toquv-kunlik-nt" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="a-toquv-kunlik-sht" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Rulon soni <span style="color:#f87171">*</span></label><input id="a-toquv-kunlik-rulon" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Qaysi bo'limga <span style="color:#f87171">*</span></label><select id="a-toquv-kunlik-bolim" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"><option value="">Tanlang...</option><option value="Aisha Xom Ombor">Aisha Xom Ombor</option></select></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button onclick="addRow_aToquvChiqim()" style="flex:1;background:#6366f1;color:#fff;border:none;border-radius:10px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+        <button onclick="closeModal_aToquvChiqim()" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page" id="a-toquv-ostatka"><div class="nav-btns"><button class="back" onclick="show('a-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha To'quv ostatka</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-xom"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Xom Ombor</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-partiya"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Partiya</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-boyoq"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Bo'yoq</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-yarim1"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Yarim tayyor Ombor</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-chevar1"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Chevarxona-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-chevar2"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Chevarxona-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-tmo"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha TMO</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+
+<!-- OQTOSH BO'LIMLARI -->
+<div class="page" id="o-zakaz">
+  <div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Zakaz</div>
+  <p class="sub">Turni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:480px">
+    <button class="sec-card" onclick="show('zakazlar')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div>
+      <div class="sec-title">Zakazlar</div>
+    </button>
+    <button class="sec-card" onclick="show('o-zakaz-ostatka')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h3"/></svg></div>
+      <div class="sec-title">Zakaz ostatka</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="o-toquv">
+  <div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Oqtosh To'quv</div>
+  <p class="sub">Bo'limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('o-toquv-kirim')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Oqtosh To'quv kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('o-toquv-ostatka')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Oqtosh To'quv ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('o-toquv-kunlik')">
+      <div class="icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <div class="sec-title">Oqtosh To'quv kunlik chiqim</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="o-toquv-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh To'quv kirim</div>
+  <p class="sub" style="margin-bottom:16px">Zakazlardan tushgan barcha kirimlar</p>
+  <div style="width:100%;max-width:960px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-toquv-kirim-search" placeholder="Qidirish..." oninput="filterOToquvKirim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:16px">
+        <div style="background:#134e4a;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#2dd4bf;margin-bottom:2px">Jami Br</div>
+          <div id="o-kirim-jami-br" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+        <div style="background:#134e4a;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#2dd4bf;margin-bottom:2px">Jami Nt</div>
+          <div id="o-kirim-jami-nt" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+        <div style="background:#134e4a;border-radius:10px;padding:8px 16px;text-align:center">
+          <div style="font-size:11px;color:#2dd4bf;margin-bottom:2px">Jami Sht</div>
+          <div id="o-kirim-jami-sht" style="font-size:18px;font-weight:700;color:#fff">0</div>
+        </div>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Tushgan sana</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Srok</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Mas'ul</th>
+          </tr>
+        </thead>
+        <tbody id="o-toquv-kirim-tbody">
+          <tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Zakazlar yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="page" id="o-toquv-kunlik">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh To'quv kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-toquv-kunlik-search" placeholder="Qidirish..." oninput="filter_oToquvChiqim()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <button onclick="openModal_oToquvChiqim()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim qo'shish</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Rulon soni</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Chiqim vaqti</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaysi bo'limga</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600"></th>
+          </tr>
+        </thead>
+        <tbody id="o-toquv-kunlik-tbody"><tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yo'q</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+  <div id="o-toquv-kunlik-modal" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:100;align-items:center;justify-content:center">
+    <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:520px;margin:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <span style="font-size:16px;font-weight:700;color:#fff">Chiqim qo'shish</span>
+        <button onclick="closeModal_oToquvChiqim()" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:20px">&#x2715;</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nomi <span style="color:#f87171">*</span></label><input id="o-toquv-kunlik-nomi" placeholder="Zakaz nomi" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br <span style="color:#f87171">*</span></label><input id="o-toquv-kunlik-br" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt <span style="color:#f87171">*</span></label><input id="o-toquv-kunlik-nt" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="o-toquv-kunlik-sht" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Rulon soni <span style="color:#f87171">*</span></label><input id="o-toquv-kunlik-rulon" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Qaysi bo'limga <span style="color:#f87171">*</span></label><select id="o-toquv-kunlik-bolim" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"><option value="">Tanlang...</option><option value="Oqtosh Xom Ombor">Oqtosh Xom Ombor</option></select></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px">
+        <button onclick="addRow_oToquvChiqim()" style="flex:1;background:#6366f1;color:#fff;border:none;border-radius:10px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+        <button onclick="closeModal_oToquvChiqim()" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page" id="o-toquv-ostatka"><div class="nav-btns"><button class="back" onclick="show('o-toquv')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh To'quv ostatka</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-xom"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Xom Ombor</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-partiya"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Partiya</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-boyoq"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Bo'yoq</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-yarim1"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-yarim2"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-chevar1"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Chevarxona-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-chevar2"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Chevarxona-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-tmo"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh TMO</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+
+
+
+<!-- ZAKAZ BOSH SAHIFA -->
+<div class="page" id="zakaz-home">
+  <div class="nav-btns"><button class="back" onclick="show('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button></div>
+  <div class="title">Zakaz</div>
+  <p class="sub">Turni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:480px">
+    <button class="sec-card" onclick="show('zakazlar')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div>
+      <div class="sec-title">Zakazlar</div>
+    </button>
+    <button class="sec-card" onclick="show('zakaz-ostatka')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h3"/></svg></div>
+      <div class="sec-title">Zakaz ostatka</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="zakaz-ostatka">
+  <div class="nav-btns"><button class="back" onclick="show('zakaz-home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Zakaz ostatka</div>
+  <p class="placeholder">Ishlab chiqilmoqda...</p>
+</div>
+
+<div class="page" id="zakazlar">
+  <div class="nav-btns"><button class="back" onclick="show('zakaz-home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Zakazlar</div>
+  <div style="width:100%;max-width:900px;margin-top:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <input id="zakazlar-search" placeholder="Qidirish..." oninput="filterZakazlar()" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+      <button onclick="exportToExcel()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:8px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        Excel
+      </button>
+      <button onclick="openModal_zakazlar()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Zakaz qo'shish</button>
+    </div>
+    </div>
+
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table id="zakazlar-table" style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Tushgan sana</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Srok</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Mas'ul</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center"></th>
+          </tr>
+          <tr style="background:#12122a;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:8px 10px;font-size:11px;color:#818cf8;font-weight:600">Jami:</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-br">0</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-nt">0</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-sht">0</td>
+            <td colspan="4"></td>
+          </tr>
+        </thead>
+        <tbody id="zakazlar-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha zakaz yo'q</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="zakazlar-modal" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:100;align-items:center;justify-content:center">
+    <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:480px;margin:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <span style="font-size:16px;font-weight:700;color:#fff">Zakaz qo'shish</span>
+        <button onclick="closeModal_zakazlar()" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:20px">&#x2715;</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nomi <span style="color:#f87171">*</span></label><input id="zakazlar-nomi" placeholder="Zakaz nomi" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br <span style="color:#f87171">*</span></label><input id="zakazlar-br" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt <span style="color:#f87171">*</span></label><input id="zakazlar-nt" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="zakazlar-sht" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Tushgan sana</label><div id="zakazlar-tushgan-display" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#5eead4;font-size:13px;font-family:Inter,sans-serif;">Avtomatik</div><input type="hidden" id="zakazlar-tushgan-hidden"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Srok <span style="color:#f87171">*</span></label><input id="zakazlar-srok" type="date" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Mas'ul <span style="color:#f87171">*</span></label><input id="zakazlar-masul" placeholder="Ism" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button onclick="addRow_zakazlar()" style="flex:1;background:#6366f1;color:#fff;border:none;border-radius:10px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+        <button onclick="closeModal_zakazlar()" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page" id="a-zakaz-ostatka"><div class="nav-btns"><button class="back" onclick="show('a-zakaz')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Zakaz ostatka</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-zakazlar">
+  <div class="nav-btns"><button class="back" onclick="show('o-zakaz')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div>
+  <div class="title">Zakazlar</div>
+  <div style="width:100%;max-width:900px;margin-top:8px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div style="display:flex;gap:24px">
+        <div style="text-align:center"><div style="font-size:11px;color:#64748b;margin-bottom:2px">Jami Br</div><div style="font-size:18px;font-weight:700;color:#fff" id="o-zakazlar-jami-br">0</div></div>
+        <div style="text-align:center"><div style="font-size:11px;color:#64748b;margin-bottom:2px">Jami Nt</div><div style="font-size:18px;font-weight:700;color:#fff" id="o-zakazlar-jami-nt">0</div></div>
+        <div style="text-align:center"><div style="font-size:11px;color:#64748b;margin-bottom:2px">Jami Sht</div><div style="font-size:18px;font-weight:700;color:#fff" id="o-zakazlar-jami-sht">0</div></div>
+      </div>
+      <button onclick="openModal_oZakazlar()" style="background:#0f6e56;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Zakaz qo'shish</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table id="o-zakazlar-table" style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Nomi</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center;white-space:nowrap">Tushgan sana</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Srok</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Mas'ul</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center"></th>
+          </tr>
+          <tr style="background:#12122a;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:8px 10px;font-size:11px;color:#818cf8;font-weight:600">Jami:</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-br">0</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-nt">0</td>
+            <td style="padding:8px 10px;text-align:center;font-size:16px;font-weight:700;color:#a5b4fc" id="zakazlar-jami-sht">0</td>
+            <td colspan="4"></td>
+          </tr>
+        </thead>
+        <tbody id="o-zakazlar-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha zakaz yo'q</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="o-zakazlar-modal" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:100;align-items:center;justify-content:center">
+    <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:480px;margin:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+        <span style="font-size:16px;font-weight:700;color:#fff">Zakaz qo'shish</span>
+        <button onclick="closeModal_oZakazlar()" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:20px">&#x2715;</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nomi <span style="color:#f87171">*</span></label><input id="o-zakazlar-nomi" placeholder="Zakaz nomi" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br <span style="color:#f87171">*</span></label><input id="o-zakazlar-br" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt <span style="color:#f87171">*</span></label><input id="o-zakazlar-nt" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="o-zakazlar-sht" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Tushgan sana</label><div id="o-zakazlar-tushgan-display" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#5eead4;font-size:13px;font-family:Inter,sans-serif;">Avtomatik</div></div>
+        <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Srok <span style="color:#f87171">*</span></label><input id="o-zakazlar-srok" type="date" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Mas'ul <span style="color:#f87171">*</span></label><input id="o-zakazlar-masul" placeholder="Ism" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:20px">
+        <button onclick="addRow_oZakazlar()" style="flex:1;background:#0f6e56;color:#fff;border:none;border-radius:10px;padding:11px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+        <button onclick="closeModal_oZakazlar()" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page" id="o-zakaz-ostatka"><div class="nav-btns"><button class="back" onclick="show('o-zakaz')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Zakaz ostatka</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+
+<script>
+
+const SUPA_URL = 'https://dhuvtkhpowzqpzizkmlj.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRodXZ0a2hwb3d6cXB6aXprbWxqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAyNzk3MDgsImV4cCI6MjA5NTg1NTcwOH0.K35k0fLvqrRTBeUWSwZ6aaY8aimMEWN2aNCAYbL1Grc';
+
+async function supaFetch(method, body=null, query='') {
+  try {
+    const res = await fetch(SUPA_URL+'/rest/v1/zakazlar'+query, {
+      method,
+      headers: {
+        'apikey': SUPA_KEY,
+        'Authorization': 'Bearer '+SUPA_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': method==='POST' ? 'return=representation' : 'return=minimal'
+      },
+      body: body ? JSON.stringify(body) : null
+    });
+    if(!res.ok) {
+      const e=await res.text();
+      console.error('Supabase error:',e);
+      alert('Xatolik: '+e);
+      return null;
+    }
+    if(method==='DELETE') return true;
+    const text=await res.text();
+    return text ? JSON.parse(text) : [];
+  } catch(e) {
+    console.error('Fetch error:',e);
+    alert('Tarmoq xatoligi: '+e.message);
+    return null;
+  }
+}
+
+async function loadRows(pid, manba) {
+  const query = manba==='umumiy' ? '?order=created_at.desc' : '?manba=eq.'+manba+'&order=created_at.desc';
+  const data = await supaFetch('GET', null, query);
+  if(!data) return;
+  if(pid==='zakazlar') { rows_zakazlar=data; filteredRows_zakazlar=data; renderTable_zakazlar(); }
+  
+}
+
+
+var rows_zakazlar = [];
+function getUZTime(){
+  var now=new Date();
+  var uz=new Date(now.getTime()+5*60*60*1000);
+  var d=uz.toISOString();
+  var date=d.slice(8,10)+'.'+d.slice(5,7)+'.'+d.slice(0,4);
+  var time=d.slice(11,16);
+  return date+' '+time+' (UZT)';
+}
+var _tushganVaqt = '';
+function openModal_zakazlar(){
+  document.getElementById('zakazlar-modal').style.display='flex';
+  _tushganVaqt = getUZTime();
+  document.getElementById('zakazlar-tushgan-display').textContent=_tushganVaqt;
+  document.getElementById('zakazlar-tushgan-hidden').value=_tushganVaqt;
+}
+function closeModal_zakazlar(){ document.getElementById('zakazlar-modal').style.display='none'; }
+async function addRow_zakazlar(){
+  var nomi=document.getElementById('zakazlar-nomi').value.trim();
+  var br=document.getElementById('zakazlar-br').value.trim();
+  var nt=document.getElementById('zakazlar-nt').value.trim();
+  var sht=document.getElementById('zakazlar-sht').value.trim();
+  var srok=document.getElementById('zakazlar-srok').value.trim();
+  var masul=document.getElementById('zakazlar-masul').value.trim();
+  var _now=new Date();
+  var _uz=new Date(_now.getTime()+5*60*60*1000);
+  var _d=_uz.toISOString();
+  var tushgan=_d.slice(8,10)+'.'+_d.slice(5,7)+'.'+_d.slice(0,4)+' '+_d.slice(11,16)+' (UZT)';
+  if(!nomi||!br||!nt||!sht||!srok||!masul){alert('Barcha maydonlarni to\'ldiring!');return;}
+  var dublikat=rows_zakazlar.find(function(r){return r.nomi.toLowerCase()===nomi.toLowerCase();});
+  if(dublikat){alert('\"'+nomi+'\" nomli zakaz allaqachon mavjud!');return;}
+  const saved = await supaFetch('POST',{nomi,br:+br,nt:+nt,sht:+sht,tushgan_sana:tushgan,srok,masul,manba:'umumiy'});
+  if(saved && saved.length>0){
+    rows_zakazlar.unshift(saved[0]);
+    renderTable_zakazlar();
+    closeModal_zakazlar();
+    ['nomi','br','nt','sht','srok','masul'].forEach(f=>document.getElementById('zakazlar-'+f).value='');
+  }
+}
+async function deleteRow_zakazlar(i){
+  const row=rows_zakazlar[i];
+  if(!confirm('O\'chirishni tasdiqlaysizmi?')) return;
+  await supaFetch('DELETE',null,'?id=eq.'+row.id);
+  rows_zakazlar.splice(i,1); renderTable_zakazlar();
+}
+function renderTable_zakazlar(data){
+  var rows=data||rows_zakazlar;
+  var tbody=document.getElementById('zakazlar-tbody');
+  var jbr=rows.reduce(function(s,r){return s+(+r.br||0);},0);
+  var jnt=rows.reduce(function(s,r){return s+(+r.nt||0);},0);
+  var jsht=rows.reduce(function(s,r){return s+(+r.sht||0);},0);
+  document.getElementById('zakazlar-jami-br').textContent=jbr;
+  document.getElementById('zakazlar-jami-nt').textContent=jnt;
+  document.getElementById('zakazlar-jami-sht').textContent=jsht;
+  if(rows.length===0){ tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha zakaz yo\'q</td></tr>'; }
+  else{
+    tbody.innerHTML=rows.map(function(r,i){
+      return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#5eead4;white-space:nowrap;font-size:12px">'+(r.tushgan_sana||'-')+'</td><td style="padding:10px;text-align:center;color:#94a3b8;white-space:nowrap">'+r.srok+'</td><td style="padding:10px;text-align:center;color:#94a3b8">'+r.masul+'</td><td style="padding:10px;text-align:center"><button onclick="deleteRow_zakazlar('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">O\'chirish</button></td></tr>';
+    }).join('');
+  }
+
+}
+
+var rows_oZakazlar = [];
+function openModal_oZakazlar(){
+  document.getElementById('o-zakazlar-modal').style.display='flex';
+  document.getElementById('o-zakazlar-tushgan-display').textContent=getUZTime();
+}
+function closeModal_oZakazlar(){ document.getElementById('o-zakazlar-modal').style.display='none'; }
+function addRow_oZakazlar(){
+  var nomi=document.getElementById('o-zakazlar-nomi').value.trim();
+  var br=document.getElementById('o-zakazlar-br').value.trim();
+  var nt=document.getElementById('o-zakazlar-nt').value.trim();
+  var sht=document.getElementById('o-zakazlar-sht').value.trim();
+  var srok=document.getElementById('o-zakazlar-srok').value.trim();
+  var masul=document.getElementById('o-zakazlar-masul').value.trim();
+  var tushgan=document.getElementById('o-zakazlar-tushgan-display').textContent;
+  if(!nomi||!br||!nt||!sht||!srok||!masul){
+    alert('Barcha maydonlarni to\'ldiring!');return;
+  }
+  rows_oZakazlar.push({nomi,br,nt,sht,tushgan,srok,masul});
+  renderTable_oZakazlar();
+  closeModal_oZakazlar();
+  document.getElementById('o-zakazlar-nomi').value='';
+  document.getElementById('o-zakazlar-br').value='';
+  document.getElementById('o-zakazlar-nt').value='';
+  document.getElementById('o-zakazlar-sht').value='';
+  document.getElementById('o-zakazlar-tushgan').value='';
+  document.getElementById('o-zakazlar-srok').value='';
+  document.getElementById('o-zakazlar-masul').value='';
+}
+async function deleteRow_oZakazlar(i){
+  const row=rows_oZakazlar[i];
+  if(!confirm('O\'chirishni tasdiqlaysizmi?')) return;
+  await supaFetch('DELETE',null,'?id=eq.'+row.id);
+  rows_oZakazlar.splice(i,1); renderTable_oZakazlar();
+}
+function renderTable_oZakazlar(){
+  var tbody=document.getElementById('o-zakazlar-tbody');
+  if(rows_oZakazlar.length===0){ tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha zakaz yo\'q</td></tr>'; }
+  else{
+    tbody.innerHTML=rows_oZakazlar.map(function(r,i){
+      return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#5eead4;white-space:nowrap;font-size:12px">'+(r.tushgan_sana||'-')+'</td><td style="padding:10px;text-align:center;color:#94a3b8;white-space:nowrap">'+r.srok+'</td><td style="padding:10px;text-align:center;color:#94a3b8">'+r.masul+'</td><td style="padding:10px;text-align:center"><button onclick="deleteRow_oZakazlar('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">O\'chirish</button></td></tr>';
+    }).join('');
+  }
+  var jbr=rows_oZakazlar.reduce(function(s,r){return s+r.br;},0);
+  var jnt=rows_oZakazlar.reduce(function(s,r){return s+r.nt;},0);
+  var jsht=rows_oZakazlar.reduce(function(s,r){return s+r.sht;},0);
+  document.getElementById('o-zakazlar-jami-br').textContent=jbr;
+  document.getElementById('o-zakazlar-jami-nt').textContent=jnt;
+  document.getElementById('o-zakazlar-jami-sht').textContent=jsht;
+}
+
+
+var filteredRows_zakazlar = [];
+function filterZakazlar(){
+  var q=document.getElementById('zakazlar-search').value.toLowerCase();
+  filteredRows_zakazlar=q ? rows_zakazlar.filter(function(r){
+    return r.nomi.toLowerCase().includes(q)||(r.masul||'').toLowerCase().includes(q);
+  }) : rows_zakazlar;
+  renderTable_zakazlar(filteredRows_zakazlar);
+}
+
+
+async function exportToExcel(){
+  if(!rows_zakazlar||rows_zakazlar.length===0){alert("Malumot yoq!");return;}
+  var eR=(filteredRows_zakazlar&&filteredRows_zakazlar.length>0)?filteredRows_zakazlar:rows_zakazlar;
+  var today=new Date();
+  var uz=new Date(today.getTime()+5*60*60*1000);
+  var iso=uz.toISOString();
+  var d=iso.slice(8,10)+"."+iso.slice(5,7)+"."+iso.slice(0,4);
+
+  var wb=new ExcelJS.Workbook();
+  var ws=wb.addWorksheet("Zakazlar");
+
+  ws.columns=[
+    {key:"no",width:5},
+    {key:"nomi",width:28},
+    {key:"br",width:10},
+    {key:"nt",width:10},
+    {key:"sht",width:10},
+    {key:"tushgan",width:22},
+    {key:"srok",width:13},
+    {key:"masul",width:14}
+  ];
+
+  // Row 1 - sarlavha
+  ws.mergeCells("A1:H1");
+  var r1=ws.getCell("A1");
+  r1.value="ZAKAZLAR RO'YXATI";
+  r1.font={bold:true,size:14,color:{argb:"FFFFFFFF"},name:"Calibri"};
+  r1.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FF2D3748"}};
+  r1.alignment={horizontal:"center",vertical:"middle"};
+  ws.getRow(1).height=28;
+
+  // Row 2 - sana
+  ws.mergeCells("A2:H2");
+  var r2=ws.getCell("A2");
+  r2.value="Sana: "+d;
+  r2.font={italic:true,size:11,color:{argb:"FF2D3748"},name:"Calibri"};
+  r2.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FFF2F2F2"}};
+  r2.alignment={horizontal:"center",vertical:"middle"};
+  ws.getRow(2).height=20;
+
+  // Row 3 - bo'sh
+  ws.addRow([]);
+  ws.getRow(3).height=6;
+
+  // Row 4 - header
+  var hRow=ws.addRow(["#","Zakaz nomi","Br","Nt","Sht","Tushgan sana","Srok","Mas'ul"]);
+  hRow.height=22;
+  hRow.eachCell(function(cell){
+    cell.font={bold:true,size:11,color:{argb:"FFFFFFFF"},name:"Calibri"};
+    cell.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FF4A5568"}};
+    cell.alignment={horizontal:"center",vertical:"middle"};
+    cell.border={
+      top:{style:"medium",color:{argb:"FF2D3748"}},
+      bottom:{style:"medium",color:{argb:"FF2D3748"}},
+      left:{style:"thin",color:{argb:"FF718096"}},
+      right:{style:"thin",color:{argb:"FF718096"}}
+    };
+  });
+
+  // Data rows
+  eR.forEach(function(r,i){
+    var ts=String(r.tushgan_sana||"").replace(" (UZT)","");
+    if(!ts||ts==="-") ts="";
+    var row=ws.addRow([i+1,String(r.nomi||""),+(r.br)||0,+(r.nt)||0,+(r.sht)||0,ts,String(r.srok||""),String(r.masul||"")]);
+    row.height=18;
+    var bg=i%2===0?"FFFFFFFF":"FFF7F7F7";
+    row.eachCell(function(cell,col){
+      cell.fill={type:"pattern",pattern:"solid",fgColor:{argb:bg}};
+      cell.font={size:11,name:"Calibri"};
+      cell.alignment={horizontal:col===2?"left":"center",vertical:"middle"};
+      cell.border={
+        top:{style:"hair",color:{argb:"FFCCCCCC"}},
+        bottom:{style:"hair",color:{argb:"FFCCCCCC"}},
+        left:{style:"thin",color:{argb:"FFDDDDDD"}},
+        right:{style:"thin",color:{argb:"FFDDDDDD"}}
+      };
+    });
+    // Tushgan sana - string majburlash
+    var tsCell=row.getCell(6);
+    tsCell.value=ts;
+    tsCell.numFmt="@";
+  });
+
+  // Jami
+  var jBr=eR.reduce(function(s,r){return s+(+r.br||0);},0);
+  var jNt=eR.reduce(function(s,r){return s+(+r.nt||0);},0);
+  var jSht=eR.reduce(function(s,r){return s+(+r.sht||0);},0);
+  var jRow=ws.addRow(["","JAMI:",jBr,jNt,jSht,"","",""]);
+  jRow.height=22;
+  jRow.eachCell(function(cell){
+    cell.font={bold:true,size:11,name:"Calibri"};
+    cell.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FFE2E8F0"}};
+    cell.alignment={horizontal:"center",vertical:"middle"};
+    cell.border={
+      top:{style:"medium",color:{argb:"FF4A5568"}},
+      bottom:{style:"medium",color:{argb:"FF4A5568"}},
+      left:{style:"thin",color:{argb:"FFDDDDDD"}},
+      right:{style:"thin",color:{argb:"FFDDDDDD"}}
+    };
+  });
+  jRow.getCell(2).alignment={horizontal:"left",vertical:"middle"};
+
+  var buf=await wb.xlsx.writeBuffer();
+  var blob=new Blob([buf],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});
+  var url=URL.createObjectURL(blob);
+  var a=document.createElement("a");
+  a.href=url; a.download="Zakazlar_"+d+".xlsx";
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(url);
+}
+
+
+var rows_aToquvChiqim = [];
+function openModal_aToquvChiqim(){ document.getElementById('a-toquv-kunlik-modal').style.display='flex'; }
+function closeModal_aToquvChiqim(){ document.getElementById('a-toquv-kunlik-modal').style.display='none'; }
+function filter_aToquvChiqim(){
+  var q=document.getElementById('a-toquv-kunlik-search').value.toLowerCase();
+  var filtered=q?rows_aToquvChiqim.filter(function(r){return r.nomi.toLowerCase().includes(q)||(r.bolim||'').toLowerCase().includes(q);}):rows_aToquvChiqim;
+  renderRows_aToquvChiqim(filtered);
+}
+function addRow_aToquvChiqim(){
+  var nomi=document.getElementById('a-toquv-kunlik-nomi').value.trim();
+  var br=document.getElementById('a-toquv-kunlik-br').value.trim();
+  var nt=document.getElementById('a-toquv-kunlik-nt').value.trim();
+  var sht=document.getElementById('a-toquv-kunlik-sht').value.trim();
+  var rulon=document.getElementById('a-toquv-kunlik-rulon').value.trim();
+  var bolim=document.getElementById('a-toquv-kunlik-bolim').value.trim();
+  if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
+  var now=new Date(); var uz=new Date(now.getTime()+5*60*60*1000);
+  var iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16)+' (UZT)';
+  rows_aToquvChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon:+rulon,vaqt:vaqt,bolim:bolim});
+  renderRows_aToquvChiqim(rows_aToquvChiqim);
+  closeModal_aToquvChiqim();
+  ['a-toquv-kunlik-nomi','a-toquv-kunlik-br','a-toquv-kunlik-nt','a-toquv-kunlik-sht','a-toquv-kunlik-rulon'].forEach(function(id){document.getElementById(id).value='';}); 
+  document.getElementById('a-toquv-kunlik-bolim').value='';
+}
+function renderRows_aToquvChiqim(rows){
+  var tbody=document.getElementById('a-toquv-kunlik-tbody');
+  if(!rows||rows.length===0){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yoq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.rulon+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px;white-space:nowrap">'+r.vaqt+'</td><td style="padding:10px;text-align:center;color:#818cf8">'+r.bolim+'</td><td style="padding:10px;text-align:center"><button onclick="delRow_aToquvChiqim('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">Ochirish</button></td></tr>';
+  }).join('');
+}
+function delRow_aToquvChiqim(i){
+  if(!confirm('Ochirish?'))return;
+  rows_aToquvChiqim.splice(i,1); renderRows_aToquvChiqim(rows_aToquvChiqim);
+}
+
+
+var rows_oToquvChiqim = [];
+function openModal_oToquvChiqim(){ document.getElementById('o-toquv-kunlik-modal').style.display='flex'; }
+function closeModal_oToquvChiqim(){ document.getElementById('o-toquv-kunlik-modal').style.display='none'; }
+function filter_oToquvChiqim(){
+  var q=document.getElementById('o-toquv-kunlik-search').value.toLowerCase();
+  var filtered=q?rows_oToquvChiqim.filter(function(r){return r.nomi.toLowerCase().includes(q)||(r.bolim||'').toLowerCase().includes(q);}):rows_oToquvChiqim;
+  renderRows_oToquvChiqim(filtered);
+}
+function addRow_oToquvChiqim(){
+  var nomi=document.getElementById('o-toquv-kunlik-nomi').value.trim();
+  var br=document.getElementById('o-toquv-kunlik-br').value.trim();
+  var nt=document.getElementById('o-toquv-kunlik-nt').value.trim();
+  var sht=document.getElementById('o-toquv-kunlik-sht').value.trim();
+  var rulon=document.getElementById('o-toquv-kunlik-rulon').value.trim();
+  var bolim=document.getElementById('o-toquv-kunlik-bolim').value.trim();
+  if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
+  var now=new Date(); var uz=new Date(now.getTime()+5*60*60*1000);
+  var iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16)+' (UZT)';
+  rows_oToquvChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon:+rulon,vaqt:vaqt,bolim:bolim});
+  renderRows_oToquvChiqim(rows_oToquvChiqim);
+  closeModal_oToquvChiqim();
+  ['o-toquv-kunlik-nomi','o-toquv-kunlik-br','o-toquv-kunlik-nt','o-toquv-kunlik-sht','o-toquv-kunlik-rulon'].forEach(function(id){document.getElementById(id).value='';}); 
+  document.getElementById('o-toquv-kunlik-bolim').value='';
+}
+function renderRows_oToquvChiqim(rows){
+  var tbody=document.getElementById('o-toquv-kunlik-tbody');
+  if(!rows||rows.length===0){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yoq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.rulon+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px;white-space:nowrap">'+r.vaqt+'</td><td style="padding:10px;text-align:center;color:#818cf8">'+r.bolim+'</td><td style="padding:10px;text-align:center"><button onclick="delRow_oToquvChiqim('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">Ochirish</button></td></tr>';
+  }).join('');
+}
+function delRow_oToquvChiqim(i){
+  if(!confirm('Ochirish?'))return;
+  rows_oToquvChiqim.splice(i,1); renderRows_oToquvChiqim(rows_oToquvChiqim);
+}
+
+
+var rows_aToquvChiqim=[];
+function openModal_aToquvChiqim(){document.getElementById('a-toquv-kunlik-modal').style.display='flex';}
+function closeModal_aToquvChiqim(){document.getElementById('a-toquv-kunlik-modal').style.display='none';}
+function filter_aToquvChiqim(){
+  var q=document.getElementById('a-toquv-kunlik-search').value.toLowerCase();
+  var f=q?rows_aToquvChiqim.filter(function(r){return r.nomi.toLowerCase().includes(q)||(r.bolim||'').toLowerCase().includes(q);}):rows_aToquvChiqim;
+  renderRows_aToquvChiqim(f);
+}
+function addRow_aToquvChiqim(){
+  var nomi=document.getElementById('a-toquv-kunlik-nomi').value.trim();
+  var br=document.getElementById('a-toquv-kunlik-br').value.trim();
+  var nt=document.getElementById('a-toquv-kunlik-nt').value.trim();
+  var sht=document.getElementById('a-toquv-kunlik-sht').value.trim();
+  var rulon=document.getElementById('a-toquv-kunlik-rulon').value.trim();
+  var bolim=document.getElementById('a-toquv-kunlik-bolim').value.trim();
+  if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
+  var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16)+' (UZT)';
+  rows_aToquvChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon:+rulon,vaqt:vaqt,bolim:bolim});
+  renderRows_aToquvChiqim(rows_aToquvChiqim);
+  closeModal_aToquvChiqim();
+  ['a-toquv-kunlik-nomi','a-toquv-kunlik-br','a-toquv-kunlik-nt','a-toquv-kunlik-sht','a-toquv-kunlik-rulon'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('a-toquv-kunlik-bolim').value='';
+}
+function renderRows_aToquvChiqim(rows){
+  var tbody=document.getElementById('a-toquv-kunlik-tbody');
+  if(!rows||rows.length===0){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yoq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.rulon+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px;white-space:nowrap">'+r.vaqt+'</td><td style="padding:10px;text-align:center;color:#818cf8">'+r.bolim+'</td><td style="padding:10px;text-align:center"><button onclick="delRow_aToquvChiqim('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">Ochirish</button></td></tr>';
+  }).join('');
+}
+function delRow_aToquvChiqim(i){if(!confirm('Ochirish?'))return;rows_aToquvChiqim.splice(i,1);renderRows_aToquvChiqim(rows_aToquvChiqim);}
+
+var rows_oToquvChiqim=[];
+function openModal_oToquvChiqim(){document.getElementById('o-toquv-kunlik-modal').style.display='flex';}
+function closeModal_oToquvChiqim(){document.getElementById('o-toquv-kunlik-modal').style.display='none';}
+function filter_oToquvChiqim(){
+  var q=document.getElementById('o-toquv-kunlik-search').value.toLowerCase();
+  var f=q?rows_oToquvChiqim.filter(function(r){return r.nomi.toLowerCase().includes(q)||(r.bolim||'').toLowerCase().includes(q);}):rows_oToquvChiqim;
+  renderRows_oToquvChiqim(f);
+}
+function addRow_oToquvChiqim(){
+  var nomi=document.getElementById('o-toquv-kunlik-nomi').value.trim();
+  var br=document.getElementById('o-toquv-kunlik-br').value.trim();
+  var nt=document.getElementById('o-toquv-kunlik-nt').value.trim();
+  var sht=document.getElementById('o-toquv-kunlik-sht').value.trim();
+  var rulon=document.getElementById('o-toquv-kunlik-rulon').value.trim();
+  var bolim=document.getElementById('o-toquv-kunlik-bolim').value.trim();
+  if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
+  var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16)+' (UZT)';
+  rows_oToquvChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon:+rulon,vaqt:vaqt,bolim:bolim});
+  renderRows_oToquvChiqim(rows_oToquvChiqim);
+  closeModal_oToquvChiqim();
+  ['o-toquv-kunlik-nomi','o-toquv-kunlik-br','o-toquv-kunlik-nt','o-toquv-kunlik-sht','o-toquv-kunlik-rulon'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('o-toquv-kunlik-bolim').value='';
+}
+function renderRows_oToquvChiqim(rows){
+  var tbody=document.getElementById('o-toquv-kunlik-tbody');
+  if(!rows||rows.length===0){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yoq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.br+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.nt+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.sht+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+r.rulon+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px;white-space:nowrap">'+r.vaqt+'</td><td style="padding:10px;text-align:center;color:#818cf8">'+r.bolim+'</td><td style="padding:10px;text-align:center"><button onclick="delRow_oToquvChiqim('+i+')" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">Ochirish</button></td></tr>';
+  }).join('');
+}
+function delRow_oToquvChiqim(i){if(!confirm('Ochirish?'))return;rows_oToquvChiqim.splice(i,1);renderRows_oToquvChiqim(rows_oToquvChiqim);}
+
+
+function renderKirimTable(tbody_id, jami_br_id, jami_nt_id, jami_sht_id, rows) {
+  var tbody = document.getElementById(tbody_id);
+  if(!rows || rows.length===0) {
+    tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha zakazlar yo\'q</td></tr>';
+    document.getElementById(jami_br_id).textContent='0';
+    document.getElementById(jami_nt_id).textContent='0';
+    document.getElementById(jami_sht_id).textContent='0';
+    return;
+  }
+  tbody.innerHTML=rows.map(function(r,i){
+    var ts=(r.tushgan_sana||'-').replace(' (UZT)','');
+    return '<tr style="border-bottom:1px solid #1e1e35"><td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td><td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+(r.br||0)+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+(r.nt||0)+'</td><td style="padding:10px;text-align:center;color:#e2e8f0">'+(r.sht||0)+'</td><td style="padding:10px;text-align:center;color:#5eead4;font-size:12px;white-space:nowrap">'+ts+'</td><td style="padding:10px;text-align:center;color:#94a3b8">'+(r.srok||'')+'</td><td style="padding:10px;text-align:center;color:#94a3b8">'+(r.masul||'')+'</td></tr>';
+  }).join('');
+  var jbr=rows.reduce(function(s,r){return s+(+r.br||0);},0);
+  var jnt=rows.reduce(function(s,r){return s+(+r.nt||0);},0);
+  var jsht=rows.reduce(function(s,r){return s+(+r.sht||0);},0);
+  document.getElementById(jami_br_id).textContent=jbr;
+  document.getElementById(jami_nt_id).textContent=jnt;
+  document.getElementById(jami_sht_id).textContent=jsht;
+}
+
+function filterAToquvKirim() {
+  var q=document.getElementById('a-toquv-kirim-search').value.toLowerCase();
+  var filtered=q?rows_zakazlar.filter(function(r){return (r.nomi||'').toLowerCase().includes(q)||(r.masul||'').toLowerCase().includes(q);}):rows_zakazlar;
+  renderKirimTable('a-toquv-kirim-tbody','a-kirim-jami-br','a-kirim-jami-nt','a-kirim-jami-sht',filtered);
+}
+
+function filterOToquvKirim() {
+  var q=document.getElementById('o-toquv-kirim-search').value.toLowerCase();
+  var filtered=q?rows_zakazlar.filter(function(r){return (r.nomi||'').toLowerCase().includes(q)||(r.masul||'').toLowerCase().includes(q);}):rows_zakazlar;
+  renderKirimTable('o-toquv-kirim-tbody','o-kirim-jami-br','o-kirim-jami-nt','o-kirim-jami-sht',filtered);
+}
+
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  if(id==='zakazlar') loadRows('zakazlar','umumiy');
+  if(id==='a-toquv-kirim') renderKirimTable('a-toquv-kirim-tbody','a-kirim-jami-br','a-kirim-jami-nt','a-kirim-jami-sht',rows_zakazlar);
+  if(id==='o-toquv-kirim') renderKirimTable('o-toquv-kirim-tbody','o-kirim-jami-br','o-kirim-jami-nt','o-kirim-jami-sht',rows_zakazlar);
+
+}
+</script>
+</body>
+</html>
