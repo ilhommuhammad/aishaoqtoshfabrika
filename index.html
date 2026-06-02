@@ -316,10 +316,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
           <label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht</label>
           <input id="a-toquv-kunlik-sht" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/>
         </div>
-        <div>
-          <label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Rulon soni <span style="color:#f87171">*</span></label>
-          <input id="a-toquv-kunlik-rulon" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/>
-        </div>
+
       </div>
       <div style="margin-bottom:16px;padding:10px 14px;background:#0f0f1a;border-radius:8px;color:#5eead4;font-size:13px">
         Qaerga: <strong>Aisha Xom Ombor</strong>
@@ -697,10 +694,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
           <label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht</label>
           <input id="o-toquv-kunlik-sht" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/>
         </div>
-        <div>
-          <label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Rulon soni <span style="color:#f87171">*</span></label>
-          <input id="o-toquv-kunlik-rulon" type="number" placeholder="0" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/>
-        </div>
+
       </div>
       <div style="margin-bottom:16px;padding:10px 14px;background:#0f0f1a;border-radius:8px;color:#5eead4;font-size:13px">
         Qaerga: <strong>Oqtosh Xom Ombor</strong>
@@ -1341,7 +1335,7 @@ async function exportToExcel(){
   hRow.height=22;
   hRow.eachCell(function(cell){
     cell.font={bold:true,size:11,color:{argb:"FFFFFFFF"},name:"Calibri"};
-    cell.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FF4A5568"}};
+    cell.fill={type:"pattern",pattern:"solid",fgColor:{argb:"FF2D3748"}};
     cell.alignment={horizontal:"center",vertical:"middle"};
     cell.border={top:{style:"medium"},bottom:{style:"medium"},left:{style:"thin"},right:{style:"thin"}};
   });
@@ -1441,7 +1435,6 @@ function addRow_aToquvChiqim(){
   var br=document.getElementById('a-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('a-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('a-toquv-kunlik-sht').value.trim();
-  var rulon=document.getElementById('a-toquv-kunlik-rulon').value.trim();
   var bolim=document.getElementById('a-toquv-kunlik-bolim').value.trim();
   if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
   var now=new Date(); var uz=new Date(now.getTime()+5*60*60*1000);
@@ -1524,7 +1517,6 @@ function addRow_oToquvChiqim(){
   var br=document.getElementById('o-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('o-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('o-toquv-kunlik-sht').value.trim();
-  var rulon=document.getElementById('o-toquv-kunlik-rulon').value.trim();
   var bolim=document.getElementById('o-toquv-kunlik-bolim').value.trim();
   if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
   var now=new Date(); var uz=new Date(now.getTime()+5*60*60*1000);
@@ -1564,7 +1556,6 @@ function addRow_aToquvChiqim(){
   var br=document.getElementById('a-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('a-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('a-toquv-kunlik-sht').value.trim();
-  var rulon=document.getElementById('a-toquv-kunlik-rulon').value.trim();
   var bolim=document.getElementById('a-toquv-kunlik-bolim').value.trim();
   if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
@@ -1598,7 +1589,6 @@ function addRow_oToquvChiqim(){
   var br=document.getElementById('o-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('o-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('o-toquv-kunlik-sht').value.trim();
-  var rulon=document.getElementById('o-toquv-kunlik-rulon').value.trim();
   var bolim=document.getElementById('o-toquv-kunlik-bolim').value.trim();
   if(!nomi||!br||!nt||!sht||!rulon||!bolim){alert('Barcha maydonlarni toldiring!');return;}
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
@@ -1840,15 +1830,13 @@ function saveChiqim_aToquvChiqim(){
   var list=document.getElementById('a-toquv-kunlik-zakaz-list');
   var sel=list.querySelector('select');
   var nomi=sel?sel.value:'';
-  var rulon=document.getElementById('a-toquv-kunlik-rulon').value.trim();
   var br=document.getElementById('a-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('a-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('a-toquv-kunlik-sht').value.trim();
   if(!nomi){alert('Zakaz tanlang!');return;}
-  if(!rulon){alert('Rulon sonini kiriting!');return;}
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
   var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
-  var row={fabrika:'aisha',nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon_soni:+rulon,vaqt:vaqt,qaerga:'Aisha Xom Ombor'};
+  var row={fabrika:'aisha',nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon_soni:0,vaqt:vaqt,qaerga:'Aisha Xom Ombor'};
   supaFetch('POST',row,'','toquv_chiqim').then(function(saved){
     if(saved&&saved.length>0) rows_aToquvChiqim.push(saved[0]);
     else rows_aToquvChiqim.push(row);
@@ -1910,15 +1898,13 @@ function saveChiqim_oToquvChiqim(){
   var list=document.getElementById('o-toquv-kunlik-zakaz-list');
   var sel=list.querySelector('select');
   var nomi=sel?sel.value:'';
-  var rulon=document.getElementById('o-toquv-kunlik-rulon').value.trim();
   var br=document.getElementById('o-toquv-kunlik-br').value.trim();
   var nt=document.getElementById('o-toquv-kunlik-nt').value.trim();
   var sht=document.getElementById('o-toquv-kunlik-sht').value.trim();
   if(!nomi){alert('Zakaz tanlang!');return;}
-  if(!rulon){alert('Rulon sonini kiriting!');return;}
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
   var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
-  var row={fabrika:'oqtosh',nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon_soni:+rulon,vaqt:vaqt,qaerga:'Oqtosh Xom Ombor'};
+  var row={fabrika:'oqtosh',nomi:nomi,br:+br,nt:+nt,sht:+sht,rulon_soni:0,vaqt:vaqt,qaerga:'Oqtosh Xom Ombor'};
   supaFetch('POST',row,'','toquv_chiqim').then(function(saved){
     if(saved&&saved.length>0) rows_oToquvChiqim.push(saved[0]);
     else rows_oToquvChiqim.push(row);
@@ -1938,8 +1924,10 @@ function renderChiqim_oToquvChiqim(rows){
 
 // Kirim export
 
-async function excelExport(title, headers, rows_data, filename){
+async function excelExport(title, headers, rows_data, filename, headerColor, rowColor){
   if(!rows_data||rows_data.length===0){alert("Ma'lumot yo'q!");return;}
+  headerColor=headerColor||'FF4A5568';
+  rowColor=rowColor||'FFEBF5FB';
   var d=new Date(),uz=new Date(d.getTime()+5*60*60*1000),iso=uz.toISOString();
   var ds=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4);
 
@@ -1974,7 +1962,7 @@ async function excelExport(title, headers, rows_data, filename){
   hRow.height=22;
   hRow.eachCell(function(cell){
     cell.font={bold:true,size:11,color:{argb:'FFFFFFFF'},name:'Calibri'};
-    cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FF4A5568'}};
+    cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:headerColor}};
     cell.alignment={horizontal:'center',vertical:'middle'};
     cell.border={top:{style:'medium'},bottom:{style:'medium'},left:{style:'thin'},right:{style:'thin'}};
   });
@@ -1984,7 +1972,7 @@ async function excelExport(title, headers, rows_data, filename){
     var vals=headers.map(function(h){return h.get(r,i);});
     var row=ws.addRow(vals);
     row.height=18;
-    var bg=i%2===0?'FFFFFFFF':'FFEBF5FB';
+    var bg=i%2===0?'FFFFFFFF':rowColor;
     row.eachCell(function(cell,col){
       cell.fill={type:'pattern',pattern:'solid',fgColor:{argb:bg}};
       cell.font={size:11,name:'Calibri'};
@@ -2112,7 +2100,7 @@ async function exportZakazOstatka(){
      {label:"To'quv ostatka Br",width:14,get:function(r){return r.oBr;}},
      {label:"To'quv ostatka Nt",width:14,get:function(r){return r.oNt;}},
      {label:"To'quv ostatka Sht",width:14,get:function(r){return r.oSht;}}],
-    result,"Zakazlar_Ostatka");
+    result,"Zakazlar_Ostatka",'FF2D3748','FFE2E8F0');
 }
 
 
@@ -2165,7 +2153,7 @@ async function exportChiqim_aToquvChiqim(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Chiqim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Qaerga',width:20,get:function(r){return r.qaerga||'Aisha Xom Ombor';}}],
-    rows,"Aisha_Toquv_Chiqim");
+    rows,"Aisha_Toquv_Chiqim",'FF991B1B','FFFEE2E2');
 }
 async function exportChiqim_oToquvChiqim(){
   var rows=filteredChiqim_o&&filteredChiqim_o.length>0&&document.getElementById('o-toquv-kunlik-search').value?filteredChiqim_o:rows_oToquvChiqim;
@@ -2178,7 +2166,7 @@ async function exportChiqim_oToquvChiqim(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Chiqim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Qaerga',width:20,get:function(r){return r.qaerga||'Oqtosh Xom Ombor';}}],
-    rows,"Oqtosh_Toquv_Chiqim");
+    rows,"Oqtosh_Toquv_Chiqim",'FF991B1B','FFFEE2E2');
 }
 
 // ===== TOQUV KIRIM EXPORT =====
@@ -2195,7 +2183,7 @@ async function exportKirim_aToquvKirim(){
      {label:'Tushgan sana',width:22,get:function(r){return (r.tushgan_sana||'').replace(' (UZT)','');}},
      {label:'Srok',width:14,get:function(r){return r.srok||'';}},
      {label:"Mas'ul",width:14,get:function(r){return r.masul||'';}}],
-    rows,"Aisha_Toquv_Kirim");
+    rows,"Aisha_Toquv_Kirim",'FF1E40AF','FFDBEAFE');
 }
 async function exportKirim_oToquvKirim(){
   var rows=filteredKirim_o&&filteredKirim_o.length>0&&document.getElementById('o-toquv-kirim-search').value?filteredKirim_o:rows_zakazlar;
@@ -2209,7 +2197,7 @@ async function exportKirim_oToquvKirim(){
      {label:'Tushgan sana',width:22,get:function(r){return (r.tushgan_sana||'').replace(' (UZT)','');}},
      {label:'Srok',width:14,get:function(r){return r.srok||'';}},
      {label:"Mas'ul",width:14,get:function(r){return r.masul||'';}}],
-    rows,"Oqtosh_Toquv_Kirim");
+    rows,"Oqtosh_Toquv_Kirim",'FF1E40AF','FFDBEAFE');
 }
 
 // ===== XOM OMBOR KIRIM EXPORT =====
@@ -2225,7 +2213,7 @@ async function exportXomKirim_aXom(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Kirim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Kimdan',width:18,get:function(r){return r.fabrika==='aisha'?"Aisha To'quv":r.fabrika==='oqtosh'?"Oqtosh To'quv":r.qaerga||'';}}],
-    rows,"Aisha_Xom_Ombor_Kirim");
+    rows,"Aisha_Xom_Ombor_Kirim",'FF1E40AF','FFDBEAFE');
 }
 async function exportXomKirim_oXom(){
   var rows=rows_oToquvChiqim||[];
@@ -2238,7 +2226,7 @@ async function exportXomKirim_oXom(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Kirim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Kimdan',width:18,get:function(r){return r.fabrika==='aisha'?"Aisha To'quv":r.fabrika==='oqtosh'?"Oqtosh To'quv":r.qaerga||'';}}],
-    rows,"Oqtosh_Xom_Ombor_Kirim");
+    rows,"Oqtosh_Xom_Ombor_Kirim",'FF1E40AF','FFDBEAFE');
 }
 
 // ===== TOQUV OSTATKA EXPORT =====
@@ -2485,7 +2473,7 @@ async function exportXomOstatka_aXomOstatka(){
      {label:'Chiqim Br',width:11,get:function(r){return r.cBr;}},
      {label:'Chiqim Nt',width:11,get:function(r){return r.cNt;}},
      {label:'Chiqim Sht',width:11,get:function(r){return r.cSht;}}],
-    result,"Aisha_Xom_Ombor_Ostatka");
+    result,"Aisha_Xom_Ombor_Ostatka",'FF92400E','FFFEF3C7');
 }
 
 
@@ -2577,7 +2565,7 @@ async function exportXomOstatka_oXomOstatka(){
      {label:'Chiqim Br',width:11,get:function(r){return r.cBr;}},
      {label:'Chiqim Nt',width:11,get:function(r){return r.cNt;}},
      {label:'Chiqim Sht',width:11,get:function(r){return r.cSht;}}],
-    result,"Oqtosh_Xom_Ombor_Ostatka");
+    result,"Oqtosh_Xom_Ombor_Ostatka",'FF92400E','FFFEF3C7');
 }
 
 
@@ -2639,12 +2627,37 @@ function saveXomChiqim_aXomChiqim(){
   var sht=document.getElementById('a-xom-chiqim-sht').value.trim();
   if(!nomi){alert('Zakaz tanlang!');return;}
   if(!br||!nt||!sht){alert('Br, Nt, Sht kiriting!');return;}
+
+  // Sht tekshiruvi - ostatkadan ko'p bo'lmasligi kerak
+  var kirimRows=(rows_aToquvChiqim)||[];
+  var grp={};
+  kirimRows.forEach(function(r){
+    if(!grp[r.nomi]) grp[r.nomi]={br:0,nt:0,sht:0};
+    grp[r.nomi].br=Math.round((grp[r.nomi].br+(+r.br||0))*100)/100;
+    grp[r.nomi].nt=Math.round((grp[r.nomi].nt+(+r.nt||0))*100)/100;
+    grp[r.nomi].sht=Math.round((grp[r.nomi].sht+(+r.sht||0))*100)/100;
+  });
+  var kirimSht=grp[nomi]?grp[nomi].sht:0;
+  var chiqimSht=rows_aXomChiqim.filter(function(c){return c.nomi===nomi;}).reduce(function(s,c){return s+(+c.sht||0);},0);
+  var ostatkaSht=Math.round((kirimSht-chiqimSht)*100)/100;
+  if(+sht>ostatkaSht){
+    alert('Xatolik! Ostatka: '+ostatkaSht+' Sht, siz: '+sht+' Sht kiritdingiz!');
+    return;
+  }
+
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
   var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
-  rows_aXomChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,vaqt:vaqt,qaerga:'Partiya'});
-  renderXomChiqim_aXomChiqim(rows_aXomChiqim);
-  document.getElementById('a-xom-chiqim-modal').style.display='none';
+  var row={fabrika:'aisha',nomi:nomi,br:+br,nt:+nt,sht:+sht,vaqt:vaqt,qaerga:'Partiya'};
+
+  supaFetch('POST',row,'','xom_chiqim').then(function(saved){
+    if(saved&&saved.length>0) rows_aXomChiqim.push(saved[0]);
+    else rows_aXomChiqim.push(row);
+    renderXomChiqim_aXomChiqim(rows_aXomChiqim);
+    renderXomOstatka_aXomOstatka(null);
+    document.getElementById('a-xom-chiqim-modal').style.display='none';
+  });
 }
+
 function filterXomChiqim_aXomChiqim(){
   var q=document.getElementById('a-xom-chiqim-search').value.toLowerCase();
   var f=q?rows_aXomChiqim.filter(function(r){return (r.nomi||'').toLowerCase().includes(q);}):rows_aXomChiqim;
@@ -2676,7 +2689,7 @@ async function exportXomChiqim_aXomChiqim(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Chiqim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Qaerga',width:14,get:function(r){return r.qaerga||'Partiya';}}],
-    rows_aXomChiqim,"Aisha_Xom_Chiqim");
+    rows_aXomChiqim,"Aisha_Xom_Chiqim",'FF991B1B','FFFEE2E2');
 }
 
 
@@ -2738,12 +2751,37 @@ function saveXomChiqim_oXomChiqim(){
   var sht=document.getElementById('o-xom-chiqim-sht').value.trim();
   if(!nomi){alert('Zakaz tanlang!');return;}
   if(!br||!nt||!sht){alert('Br, Nt, Sht kiriting!');return;}
+
+  // Sht tekshiruvi - ostatkadan ko'p bo'lmasligi kerak
+  var kirimRows=(rows_oToquvChiqim)||[];
+  var grp={};
+  kirimRows.forEach(function(r){
+    if(!grp[r.nomi]) grp[r.nomi]={br:0,nt:0,sht:0};
+    grp[r.nomi].br=Math.round((grp[r.nomi].br+(+r.br||0))*100)/100;
+    grp[r.nomi].nt=Math.round((grp[r.nomi].nt+(+r.nt||0))*100)/100;
+    grp[r.nomi].sht=Math.round((grp[r.nomi].sht+(+r.sht||0))*100)/100;
+  });
+  var kirimSht=grp[nomi]?grp[nomi].sht:0;
+  var chiqimSht=rows_oXomChiqim.filter(function(c){return c.nomi===nomi;}).reduce(function(s,c){return s+(+c.sht||0);},0);
+  var ostatkaSht=Math.round((kirimSht-chiqimSht)*100)/100;
+  if(+sht>ostatkaSht){
+    alert('Xatolik! Ostatka: '+ostatkaSht+' Sht, siz: '+sht+' Sht kiritdingiz!');
+    return;
+  }
+
   var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
   var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
-  rows_oXomChiqim.push({nomi:nomi,br:+br,nt:+nt,sht:+sht,vaqt:vaqt,qaerga:'Partiya'});
-  renderXomChiqim_oXomChiqim(rows_oXomChiqim);
-  document.getElementById('o-xom-chiqim-modal').style.display='none';
+  var row={fabrika:'oqtosh',nomi:nomi,br:+br,nt:+nt,sht:+sht,vaqt:vaqt,qaerga:'Partiya'};
+
+  supaFetch('POST',row,'','xom_chiqim').then(function(saved){
+    if(saved&&saved.length>0) rows_oXomChiqim.push(saved[0]);
+    else rows_oXomChiqim.push(row);
+    renderXomChiqim_oXomChiqim(rows_oXomChiqim);
+    renderXomOstatka_oXomOstatka(null);
+    document.getElementById('o-xom-chiqim-modal').style.display='none';
+  });
 }
+
 function filterXomChiqim_oXomChiqim(){
   var q=document.getElementById('o-xom-chiqim-search').value.toLowerCase();
   var f=q?rows_oXomChiqim.filter(function(r){return (r.nomi||'').toLowerCase().includes(q);}):rows_oXomChiqim;
@@ -2775,7 +2813,7 @@ async function exportXomChiqim_oXomChiqim(){
      {label:'Sht',width:11,get:function(r){return +r.sht||0;}},
      {label:'Chiqim vaqti',width:22,get:function(r){return r.vaqt||'';}},
      {label:'Qaerga',width:14,get:function(r){return r.qaerga||'Partiya';}}],
-    rows_oXomChiqim,"Oqtosh_Xom_Chiqim");
+    rows_oXomChiqim,"Oqtosh_Xom_Chiqim",'FF991B1B','FFFEE2E2');
 }
 
 function show(id){
@@ -2798,6 +2836,17 @@ function show(id){
   if(id==='o-toquv-ostatka') renderOstatka_oToquvOstatka(null);
   if(id==='zakaz-ostatka') renderZakazOstatka(null);
   if(id==='a-xom-kirim') renderXomKirim('a-xom', rows_aToquvChiqim);
+  if(id==='a-xom-chiqim'||id==='o-xom-chiqim'||id==='a-xom-ostatka'||id==='o-xom-ostatka'){
+    supaFetch('GET',null,'?order=created_at.desc','xom_chiqim').then(function(data){
+      if(!data) return;
+      rows_aXomChiqim=data.filter(function(r){return r.fabrika==='aisha';});
+      rows_oXomChiqim=data.filter(function(r){return r.fabrika==='oqtosh';});
+      if(id==='a-xom-chiqim') renderXomChiqim_aXomChiqim(rows_aXomChiqim);
+      if(id==='o-xom-chiqim') renderXomChiqim_oXomChiqim(rows_oXomChiqim);
+      if(id==='a-xom-ostatka') renderXomOstatka_aXomOstatka(null);
+      if(id==='o-xom-ostatka') renderXomOstatka_oXomOstatka(null);
+    });
+  }
   if(id==='o-xom-kirim') renderXomKirim('o-xom', rows_oToquvChiqim);
   if(id==='a-xom-ostatka') renderXomOstatka_aXomOstatka(null);
   if(id==='a-xom-chiqim') renderXomChiqim_aXomChiqim(rows_aXomChiqim);
