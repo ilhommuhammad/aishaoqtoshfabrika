@@ -90,6 +90,11 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
       <div class="sec-title" style="font-size:16px">Bo'yoq</div>
     </button>
 
+    <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-rulon')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+      <div class="sec-title" style="font-size:16px">Rulon Ombor</div>
+    </button>
+
     <button class="sec-card" style="flex-direction:row;gap:16px;justify-content:center;padding:22px 28px" onclick="show('a-yarim1')">
       <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
       <div class="sec-title" style="font-size:16px">Aisha Yarim tayyor Ombor</div>
@@ -1001,6 +1006,7 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
         <label style="font-size:12px;color:#64748b;display:block;margin-bottom:6px">Qaerga <span style="color:#f87171">*</span></label>
         <select id="boyoq-qaerga" style="width:100%;padding:10px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;cursor:pointer">
           <option value="">-- Tanlang --</option>
+          <option value="Rulon Ombor">Rulon Ombor</option>
           <option value="Aisha Yarim tayyor Ombor">Aisha Yarim tayyor Ombor</option>
           <option value="Oqtosh Yarim tayyor Ombor-1">Oqtosh Yarim tayyor Ombor-1</option>
           <option value="Oqtosh Yarim tayyor Ombor-2">Oqtosh Yarim tayyor Ombor-2</option>
@@ -1013,7 +1019,589 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
     </div>
   </div>
 </div>
-<div class="page" id="a-yarim1"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Yarim tayyor Ombor</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="a-rulon">
+  <div class="nav-btns">
+    <button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Rulon Ombor</div>
+  <p class="sub">Bo‘limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('a-rulon-kirim')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Kunlik kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('a-rulon-ostatka')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('a-rulon-chiqim')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      <div class="sec-title">Kunlik chiqim</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="a-rulon-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-rulon')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Rulon Ombor kunlik kirim</div>
+  <p class="sub" style="margin-bottom:4px">Kimdan: <strong style="color:#818cf8">Bo‘yoqxona</strong></p>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+      <button onclick="exportRulonKirim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-nomi" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-br" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-nt" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-sht" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-kimdan" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Vaqt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-kirim-tbody-vaqt" data-tbody="a-rulon-kirim-tbody" placeholder="..."/></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="a-rulon-kirim-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-rulon-kirim-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-rulon-kirim-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="a-rulon-kirim-tbody">
+          <tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="a-rulon-ostatka">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-rulon')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Rulon Ombor ostatka</div>
+  <div style="width:100%;max-width:1000px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="a-rulon-ostatka-search" placeholder="Qidirish..." style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="openRulonChiqimModal()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+        <button onclick="exportRulonOstatka()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45">№</th>
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-ostatka-tbody-nomi" data-tbody="a-rulon-ostatka-tbody" placeholder="..."/></th>
+            <th colspan="3" style="padding:10px;color:#818cf8;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#1e1b4b">Kirim</th>
+            <th colspan="3" style="padding:10px;color:#fcd34d;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Ostatka</th>
+            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Chiqim</th>
+          </tr>
+          <tr>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Br</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Nt</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#1e1b4b">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Br</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Nt</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th><th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+          </tr>
+          <tr style="font-weight:700;background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;border-right:1px solid #2a2a45">JAMI:</td>
+            <td id="a-rulon-ostatka-k-br" style="padding:10px;text-align:center;color:#818cf8;background:#1e1b4b">0</td><td id="a-rulon-ostatka-k-nt" style="padding:10px;text-align:center;color:#818cf8;background:#1e1b4b">0</td><td id="a-rulon-ostatka-k-sht" style="padding:10px;text-align:center;color:#818cf8;border-right:1px solid #2a2a45;background:#1e1b4b">0</td>
+            <td id="a-rulon-ostatka-o-br" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td><td id="a-rulon-ostatka-o-nt" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td><td id="a-rulon-ostatka-o-sht" style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45;background:#2a2000">0</td>
+            <td id="a-rulon-ostatka-c-br" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td><td id="a-rulon-ostatka-c-nt" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td><td id="a-rulon-ostatka-c-sht" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+          </tr>
+        </thead>
+        <tbody id="a-rulon-ostatka-tbody">
+          <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="a-rulon-chiqim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-rulon')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Rulon Ombor kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <div style="width:240px"></div>
+      <div style="display:flex;gap:10px">
+        <button onclick="exportRulonChiqim()" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+        <button onclick="openRulonChiqimModal()" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-nomi" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-br" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-nt" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-sht" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-kimdan" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaerga<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-qaerga" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Vaqt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-rulon-chiqim-tbody-vaqt" data-tbody="a-rulon-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px"></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="a-rulon-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-rulon-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-rulon-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="a-rulon-chiqim-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="a-yarim1"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Yarim tayyor Ombor</div>
+  <p class="sub">Bo‘limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('a-yarim1-kirim')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Kunlik kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('a-yarim1-ostatka')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('a-yarim1-chiqim')">
+      <div class="icon" style="background:#1e1b4b"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      <div class="sec-title">Kunlik chiqim</div>
+    </button>
+  </div>
+</div>
+
+<div class="page" id="a-yarim1-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Aisha Yarim tayyor Ombor kunlik kirim</div>
+  <p class="sub" style="margin-bottom:4px">Kimdan: <strong style="color:#818cf8">Bo‘yoqxona</strong></p>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+      <button onclick="exportYarimKirim('a-yarim1','Aisha Yarim tayyor Ombor')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz nomi<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-nomi" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-br" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-nt" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-sht" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-kimdan" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kirim vaqti<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-kirim-tbody-vaqt" data-tbody="a-yarim1-kirim-tbody" placeholder="..."/></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="a-yarim1-kirim-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-yarim1-kirim-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-yarim1-kirim-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="a-yarim1-kirim-tbody">
+          <tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="a-yarim1-ostatka">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Aisha Yarim tayyor Ombor ostatka</div>
+  <div style="width:100%;max-width:1000px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="a-yarim1-ostatka-search" placeholder="Qidirish..." oninput="filterYarimOstatka('a-yarim1')" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="openYarimChiqimModal('a-yarim1')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+        <button onclick="exportYarimOstatka('a-yarim1','Aisha Yarim tayyor Ombor')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45">№</th>
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-ostatka-tbody-nomi" data-tbody="a-yarim1-ostatka-tbody" placeholder="..."/></th>
+            <th colspan="3" style="padding:10px;color:#818cf8;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#1e1b4b">Kirim</th>
+            <th colspan="3" style="padding:10px;color:#fcd34d;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Ostatka</th>
+            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Chiqim</th>
+          </tr>
+          <tr>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#1e1b4b">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+          </tr>
+          <tr style="font-weight:700;background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;border-right:1px solid #2a2a45">JAMI:</td>
+            <td id="a-yarim1-ostatka-k-br" style="padding:10px;text-align:center;color:#818cf8;background:#1e1b4b">0</td>
+            <td id="a-yarim1-ostatka-k-nt" style="padding:10px;text-align:center;color:#818cf8;background:#1e1b4b">0</td>
+            <td id="a-yarim1-ostatka-k-sht" style="padding:10px;text-align:center;color:#818cf8;border-right:1px solid #2a2a45;background:#1e1b4b">0</td>
+            <td id="a-yarim1-ostatka-o-br" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="a-yarim1-ostatka-o-nt" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="a-yarim1-ostatka-o-sht" style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45;background:#2a2000">0</td>
+            <td id="a-yarim1-ostatka-c-br" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="a-yarim1-ostatka-c-nt" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="a-yarim1-ostatka-c-sht" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+          </tr>
+        </thead>
+        <tbody id="a-yarim1-ostatka-tbody">
+          <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="a-yarim1-chiqim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('a-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Aisha Yarim tayyor Ombor kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="a-yarim1-chiqim-search" placeholder="Qidirish..." oninput="colFilter(document.querySelector('[data-tbody=a-yarim1-chiqim-tbody]'))" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="exportYarimChiqim('a-yarim1','Aisha Yarim tayyor Ombor')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+        <button onclick="openYarimChiqimModal('a-yarim1')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-nomi" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-br" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-nt" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-sht" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-kimdan" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaerga<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-qaerga" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Vaqt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="a-yarim1-chiqim-tbody-vaqt" data-tbody="a-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px"></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="a-yarim1-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-yarim1-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="a-yarim1-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="a-yarim1-chiqim-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim1-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-1 kunlik kirim</div>
+  <p class="sub" style="margin-bottom:4px">Kimdan: <strong style="color:#2dd4bf">Bo‘yoqxona</strong></p>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+      <button onclick="exportYarimKirim('o-yarim1','Oqtosh Yarim tayyor Ombor-1')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz nomi<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-nomi" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-br" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-nt" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-sht" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-kimdan" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kirim vaqti<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-kirim-tbody-vaqt" data-tbody="o-yarim1-kirim-tbody" placeholder="..."/></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="o-yarim1-kirim-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim1-kirim-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim1-kirim-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim1-kirim-tbody">
+          <tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim1-ostatka">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-1 ostatka</div>
+  <div style="width:100%;max-width:1000px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-yarim1-ostatka-search" placeholder="Qidirish..." oninput="filterYarimOstatka('o-yarim1')" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="openYarimChiqimModal('o-yarim1')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+        <button onclick="exportYarimOstatka('o-yarim1','Oqtosh Yarim tayyor Ombor-1')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45">№</th>
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-ostatka-tbody-nomi" data-tbody="o-yarim1-ostatka-tbody" placeholder="..."/></th>
+            <th colspan="3" style="padding:10px;color:#2dd4bf;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Kirim</th>
+            <th colspan="3" style="padding:10px;color:#fcd34d;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Ostatka</th>
+            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Chiqim</th>
+          </tr>
+          <tr>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#134e4a">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#134e4a">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+          </tr>
+          <tr style="font-weight:700;background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;border-right:1px solid #2a2a45">JAMI:</td>
+            <td id="o-yarim1-ostatka-k-br" style="padding:10px;text-align:center;color:#2dd4bf;background:#134e4a">0</td>
+            <td id="o-yarim1-ostatka-k-nt" style="padding:10px;text-align:center;color:#2dd4bf;background:#134e4a">0</td>
+            <td id="o-yarim1-ostatka-k-sht" style="padding:10px;text-align:center;color:#2dd4bf;border-right:1px solid #2a2a45;background:#134e4a">0</td>
+            <td id="o-yarim1-ostatka-o-br" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="o-yarim1-ostatka-o-nt" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="o-yarim1-ostatka-o-sht" style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45;background:#2a2000">0</td>
+            <td id="o-yarim1-ostatka-c-br" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="o-yarim1-ostatka-c-nt" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="o-yarim1-ostatka-c-sht" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim1-ostatka-tbody">
+          <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim1-chiqim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim1')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-1 kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-yarim1-chiqim-search" placeholder="Qidirish..." oninput="colFilter(document.querySelector('[data-tbody=o-yarim1-chiqim-tbody]'))" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="exportYarimChiqim('o-yarim1','Oqtosh Yarim tayyor Ombor-1')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+        <button onclick="openYarimChiqimModal('o-yarim1')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-nomi" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-br" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-nt" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-sht" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-kimdan" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaerga<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-qaerga" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Vaqt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim1-chiqim-tbody-vaqt" data-tbody="o-yarim1-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px"></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="o-yarim1-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim1-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim1-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim1-chiqim-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim2-kirim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim2')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-2 kunlik kirim</div>
+  <p class="sub" style="margin-bottom:4px">Kimdan: <strong style="color:#2dd4bf">Bo‘yoqxona</strong></p>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+      <button onclick="exportYarimKirim('o-yarim2','Oqtosh Yarim tayyor Ombor-2')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz nomi<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-nomi" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-br" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-nt" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-sht" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-kimdan" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kirim vaqti<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-kirim-tbody-vaqt" data-tbody="o-yarim2-kirim-tbody" placeholder="..."/></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="o-yarim2-kirim-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim2-kirim-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim2-kirim-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim2-kirim-tbody">
+          <tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim2-ostatka">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim2')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-2 ostatka</div>
+  <div style="width:100%;max-width:1000px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-yarim2-ostatka-search" placeholder="Qidirish..." oninput="filterYarimOstatka('o-yarim2')" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="openYarimChiqimModal('o-yarim2')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+        <button onclick="exportYarimOstatka('o-yarim2','Oqtosh Yarim tayyor Ombor-2')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45">№</th>
+            <th rowspan="2" style="padding:10px;color:#64748b;font-weight:600;text-align:left;border-right:1px solid #2a2a45">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-ostatka-tbody-nomi" data-tbody="o-yarim2-ostatka-tbody" placeholder="..."/></th>
+            <th colspan="3" style="padding:10px;color:#2dd4bf;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Kirim</th>
+            <th colspan="3" style="padding:10px;color:#fcd34d;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Ostatka</th>
+            <th colspan="3" style="padding:10px;color:#f87171;font-weight:700;text-align:center;background:#2a0a0a">Chiqim</th>
+          </tr>
+          <tr>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#134e4a">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#134e4a">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#134e4a">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a2000">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#2a2000">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a0a">Sht</th>
+          </tr>
+          <tr style="font-weight:700;background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;border-right:1px solid #2a2a45">JAMI:</td>
+            <td id="o-yarim2-ostatka-k-br" style="padding:10px;text-align:center;color:#2dd4bf;background:#134e4a">0</td>
+            <td id="o-yarim2-ostatka-k-nt" style="padding:10px;text-align:center;color:#2dd4bf;background:#134e4a">0</td>
+            <td id="o-yarim2-ostatka-k-sht" style="padding:10px;text-align:center;color:#2dd4bf;border-right:1px solid #2a2a45;background:#134e4a">0</td>
+            <td id="o-yarim2-ostatka-o-br" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="o-yarim2-ostatka-o-nt" style="padding:10px;text-align:center;color:#fcd34d;background:#2a2000">0</td>
+            <td id="o-yarim2-ostatka-o-sht" style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45;background:#2a2000">0</td>
+            <td id="o-yarim2-ostatka-c-br" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="o-yarim2-ostatka-c-nt" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+            <td id="o-yarim2-ostatka-c-sht" style="padding:10px;text-align:center;color:#f87171;background:#2a0a0a">0</td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim2-ostatka-tbody">
+          <tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="o-yarim2-chiqim">
+  <div class="nav-btns">
+    <button class="back" onclick="show('o-yarim2')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button>
+    <button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button>
+  </div>
+  <div class="title">Oqtosh Yarim tayyor Ombor-2 kunlik chiqim</div>
+  <div style="width:100%;max-width:960px;margin-top:12px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+      <input id="o-yarim2-chiqim-search" placeholder="Qidirish..." oninput="colFilter(document.querySelector('[data-tbody=o-yarim2-chiqim-tbody]'))" style="padding:9px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:10px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;width:240px"/>
+      <div style="display:flex;gap:10px">
+        <button onclick="exportYarimChiqim('o-yarim2','Oqtosh Yarim tayyor Ombor-2')" style="background:#166534;color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif;display:flex;align-items:center;gap:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>Excel</button>
+        <button onclick="openYarimChiqimModal('o-yarim2')" style="background:#6366f1;color:#fff;border:none;border-radius:10px;padding:10px 20px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">+ Chiqim</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;border-radius:14px;border:1px solid #2a2a45">
+      <table style="width:100%;border-collapse:collapse;background:#16162a;font-size:13px">
+        <thead>
+          <tr style="background:#1e1e35;border-bottom:1px solid #2a2a45">
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">№</th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:left">Zakaz<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-nomi" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Br<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-br" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Nt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-nt" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Sht<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-sht" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Kimdan<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-kimdan" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Qaerga<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-qaerga" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px;color:#64748b;font-weight:600;text-align:center">Vaqt<br><input style="width:100%;padding:3px 5px;background:#0a0a18;border:1px solid #2a2a45;border-radius:4px;color:#fff;font-size:11px;font-family:Inter,sans-serif;outline:none;margin-top:4px" oninput="colFilter(this)" data-col-filter="o-yarim2-chiqim-tbody-vaqt" data-tbody="o-yarim2-chiqim-tbody" placeholder="..."/></th>
+            <th style="padding:12px 10px"></th>
+          </tr>
+          <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
+            <td colspan="2" style="padding:10px;color:#64748b;font-size:12px;font-weight:700;text-align:right">JAMI:</td>
+            <td id="o-yarim2-jami-br" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim2-jami-nt" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td id="o-yarim2-jami-sht" style="padding:10px;text-align:center;color:#f87171;font-weight:700;font-size:14px">0</td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+        </thead>
+        <tbody id="o-yarim2-chiqim-tbody">
+          <tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Yuklanmoqda...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 <div class="page" id="a-chevar1"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Chevarxona-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
 <div class="page" id="a-chevar2"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha Chevarxona-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
 <div class="page" id="a-tmo"><div class="nav-btns"><button class="back" onclick="show('aisha')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Aisha TMO</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
@@ -1631,8 +2219,40 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
   </div>
 </div><div class="page" id="o-partiya"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Partiya</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
 <div class="page" id="o-boyoq"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Bo'yoq</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
-<div class="page" id="o-yarim1"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
-<div class="page" id="o-yarim2"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
+<div class="page" id="o-yarim1"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-1</div>
+  <p class="sub">Bo‘limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('o-yarim1-kirim')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Kunlik kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('o-yarim1-ostatka')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('o-yarim1-chiqim')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      <div class="sec-title">Kunlik chiqim</div>
+    </button>
+  </div>
+</div>
+<div class="page" id="o-yarim2"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Yarim tayyor Ombor-2</div>
+  <p class="sub">Bo‘limni tanlang</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;width:100%;max-width:680px">
+    <button class="sec-card" onclick="show('o-yarim2-kirim')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+      <div class="sec-title">Kunlik kirim</div>
+    </button>
+    <button class="sec-card" onclick="show('o-yarim2-ostatka')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14M4 8v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M9 12h6"/></svg></div>
+      <div class="sec-title">Ostatka</div>
+    </button>
+    <button class="sec-card" onclick="show('o-yarim2-chiqim')">
+      <div class="icon" style="background:#134e4a"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+      <div class="sec-title">Kunlik chiqim</div>
+    </button>
+  </div>
+</div>
 <div class="page" id="o-chevar1"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Chevarxona-1</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
 <div class="page" id="o-chevar2"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh Chevarxona-2</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
 <div class="page" id="o-tmo"><div class="nav-btns"><button class="back" onclick="show('oqtosh')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Orqaga</button><button class="home-btn" onclick="show('home')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>Bosh sahifa</button></div><div class="title">Oqtosh TMO</div><p class="placeholder">Ishlab chiqilmoqda...</p></div>
@@ -1677,7 +2297,10 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <th colspan="3" style="padding:8px;color:#a78bfa;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#1a1040">Aisha Xom Itema</th>
             <th colspan="3" style="padding:8px;color:#34d399;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#0a2218">Oqtosh Xom Ombor</th>
             <th colspan="3" style="padding:8px;color:#c084fc;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#1e0a2e">Partiya ostatka</th>
-            <th colspan="3" style="padding:8px;color:#f472b6;font-weight:700;text-align:center;background:#2a0a1e">Bo'yoq ostatka</th>
+            <th colspan="3" style="padding:8px;color:#f472b6;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#2a0a1e">Bo'yoq ostatka</th>
+            <th colspan="3" style="padding:8px;color:#86efac;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#052e16">Aisha Yarim tayyor Ombor</th>
+            <th colspan="3" style="padding:8px;color:#67e8f9;font-weight:700;text-align:center;border-right:1px solid #2a2a45;background:#083344">Oqtosh Yarim tayyor Ombor-1</th>
+            <th colspan="3" style="padding:8px;color:#93c5fd;font-weight:700;text-align:center;background:#172554">Oqtosh Yarim tayyor Ombor-2</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45">
             <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#1e1b4b">Br</th>
@@ -1700,7 +2323,16 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#1e0a2e">Sht</th>
             <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a1e">Br</th>
             <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a1e">Nt</th>
-            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#2a0a1e">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#2a0a1e">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#052e16">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#052e16">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#052e16">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#083344">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#083344">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;border-right:1px solid #2a2a45;background:#083344">Sht</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#172554">Br</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#172554">Nt</th>
+            <th style="padding:8px;color:#64748b;font-weight:600;text-align:center;background:#172554">Sht</th>
           </tr>
           <tr style="background:#1a1a30;border-bottom:2px solid #2a2a45;font-weight:700">
             <td colspan="2" style="padding:10px 8px;color:#64748b;font-size:11px;border-right:1px solid #2a2a45">JAMI:</td>
@@ -1724,11 +2356,20 @@ body{font-family:'Inter',sans-serif;background:#0f0f1a;min-height:100vh;display:
             <td id="zo-p-sht" style="padding:10px 8px;text-align:center;color:#c084fc;border-right:1px solid #2a2a45;background:#1e0a2e">0</td>
             <td id="zo-b-br" style="padding:10px 8px;text-align:center;color:#f472b6;background:#2a0a1e">0</td>
             <td id="zo-b-nt" style="padding:10px 8px;text-align:center;color:#f472b6;background:#2a0a1e">0</td>
-            <td id="zo-b-sht" style="padding:10px 8px;text-align:center;color:#f472b6;background:#2a0a1e">0</td>
+            <td id="zo-b-sht" style="padding:10px 8px;text-align:center;color:#f472b6;border-right:1px solid #2a2a45;background:#2a0a1e">0</td>
+            <td id="zo-y1-br" style="padding:10px 8px;text-align:center;color:#86efac;background:#052e16">0</td>
+            <td id="zo-y1-nt" style="padding:10px 8px;text-align:center;color:#86efac;background:#052e16">0</td>
+            <td id="zo-y1-sht" style="padding:10px 8px;text-align:center;color:#86efac;border-right:1px solid #2a2a45;background:#052e16">0</td>
+            <td id="zo-y2-br" style="padding:10px 8px;text-align:center;color:#67e8f9;background:#083344">0</td>
+            <td id="zo-y2-nt" style="padding:10px 8px;text-align:center;color:#67e8f9;background:#083344">0</td>
+            <td id="zo-y2-sht" style="padding:10px 8px;text-align:center;color:#67e8f9;border-right:1px solid #2a2a45;background:#083344">0</td>
+            <td id="zo-y3-br" style="padding:10px 8px;text-align:center;color:#93c5fd;background:#172554">0</td>
+            <td id="zo-y3-nt" style="padding:10px 8px;text-align:center;color:#93c5fd;background:#172554">0</td>
+            <td id="zo-y3-sht" style="padding:10px 8px;text-align:center;color:#93c5fd;background:#172554">0</td>
           </tr>
         </thead>
         <tbody id="zakaz-ostatka-tbody">
-          <tr><td colspan="23" style="padding:32px;text-align:center;color:#475569">Ma'lumot yuklanmoqda...</td></tr>
+          <tr><td colspan="32" style="padding:32px;text-align:center;color:#475569">Ma'lumot yuklanmoqda...</td></tr>
         </tbody>
       </table>
     </div>
@@ -2742,6 +3383,13 @@ function renderZakazOstatka(rows){
   // Bo'yoq
   var bKirim=grp(rows_boyoqKirim||[]);
   var bChiq=grp(rows_boyoqChiqim||[]);
+  // Yarim tayyor
+  var y1Kirim=grp(window['rows_yarimKirim_a-yarim1']||[]);
+  var y1Chiq=grp(window['rows_yarimChiqim_a-yarim1']||[]);
+  var y2Kirim=grp(window['rows_yarimKirim_o-yarim1']||[]);
+  var y2Chiq=grp(window['rows_yarimChiqim_o-yarim1']||[]);
+  var y3Kirim=grp(window['rows_yarimKirim_o-yarim2']||[]);
+  var y3Chiq=grp(window['rows_yarimChiqim_o-yarim2']||[]);
 
   var data=(rows||rows_zakazlar||[]).map(function(k){
     var z0=function(g){return g[k.nomi]||{br:0,nt:0,sht:0};};
@@ -2752,6 +3400,9 @@ function renderZakazOstatka(rows){
     var oK=z0(oXomKirim),oC=z0(oChiq);
     var pK=z0(pKirim),pC=z0(pChiq);
     var bK=z0(bKirim),bC=z0(bChiq);
+    var y1K=z0(y1Kirim),y1C=z0(y1Chiq);
+    var y2K=z0(y2Kirim),y2C=z0(y2Chiq);
+    var y3K=z0(y3Kirim),y3C=z0(y3Chiq);
     return {
       nomi:k.nomi,
       kBr:kBr,kNt:kNt,kSht:kSht,
@@ -2772,7 +3423,16 @@ function renderZakazOstatka(rows){
       pSht:Math.round((pK.sht-pC.sht)*100)/100,
       bBr:Math.round((bK.br-bC.br)*100)/100,
       bNt:Math.round((bK.nt-bC.nt)*100)/100,
-      bSht:Math.round((bK.sht-bC.sht)*100)/100
+      bSht:Math.round((bK.sht-bC.sht)*100)/100,
+      y1Br:Math.round((y1K.br-y1C.br)*100)/100,
+      y1Nt:Math.round((y1K.nt-y1C.nt)*100)/100,
+      y1Sht:Math.round((y1K.sht-y1C.sht)*100)/100,
+      y2Br:Math.round((y2K.br-y2C.br)*100)/100,
+      y2Nt:Math.round((y2K.nt-y2C.nt)*100)/100,
+      y2Sht:Math.round((y2K.sht-y2C.sht)*100)/100,
+      y3Br:Math.round((y3K.br-y3C.br)*100)/100,
+      y3Nt:Math.round((y3K.nt-y3C.nt)*100)/100,
+      y3Sht:Math.round((y3K.sht-y3C.sht)*100)/100
     };
   });
 
@@ -2803,7 +3463,16 @@ function renderZakazOstatka(rows){
       '<td style="padding:9px 8px;text-align:center;color:'+(r.pSht<0?'#f87171':'#c084fc')+';border-right:1px solid #1e2a3a">'+fmt(r.pSht)+'</td>'+
       '<td style="padding:9px 8px;text-align:center;color:'+(r.bBr<0?'#f87171':'#f472b6')+'">'+fmt(r.bBr)+'</td>'+
       '<td style="padding:9px 8px;text-align:center;color:'+(r.bNt<0?'#f87171':'#f472b6')+'">'+fmt(r.bNt)+'</td>'+
-      '<td style="padding:9px 8px;text-align:center;color:'+(r.bSht<0?'#f87171':'#f472b6')+'">'+fmt(r.bSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.bSht<0?'#f87171':'#f472b6')+';border-right:1px solid #1e2a3a">'+fmt(r.bSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y1Sht<0?'#f87171':'#86efac')+'">'+fmt(r.y1Br)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y1Sht<0?'#f87171':'#86efac')+'">'+fmt(r.y1Nt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y1Sht<0?'#f87171':'#86efac')+';border-right:1px solid #1e2a3a">'+fmt(r.y1Sht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y2Sht<0?'#f87171':'#67e8f9')+'">'+fmt(r.y2Br)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y2Sht<0?'#f87171':'#67e8f9')+'">'+fmt(r.y2Nt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y2Sht<0?'#f87171':'#67e8f9')+';border-right:1px solid #1e2a3a">'+fmt(r.y2Sht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y3Sht<0?'#f87171':'#93c5fd')+'">'+fmt(r.y3Br)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y3Sht<0?'#f87171':'#93c5fd')+'">'+fmt(r.y3Nt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+(r.y3Sht<0?'#f87171':'#93c5fd')+'">'+fmt(r.y3Sht)+'</td>'+
       '</tr>';
   }).join('');
 
@@ -2815,6 +3484,9 @@ function renderZakazOstatka(rows){
   s('zo-o-br',data,'oBr');s('zo-o-nt',data,'oNt');s('zo-o-sht',data,'oSht');
   s('zo-p-br',data,'pBr');s('zo-p-nt',data,'pNt');s('zo-p-sht',data,'pSht');
   s('zo-b-br',data,'bBr');s('zo-b-nt',data,'bNt');s('zo-b-sht',data,'bSht');
+  s('zo-y1-br',data,'y1Br');s('zo-y1-nt',data,'y1Nt');s('zo-y1-sht',data,'y1Sht');
+  s('zo-y2-br',data,'y2Br');s('zo-y2-nt',data,'y2Nt');s('zo-y2-sht',data,'y2Sht');
+  s('zo-y3-br',data,'y3Br');s('zo-y3-nt',data,'y3Nt');s('zo-y3-sht',data,'y3Sht');
 }
 function filterZakazOstatka(){
   var q=document.getElementById('zakaz-ostatka-search').value.toLowerCase();
@@ -4792,7 +5464,10 @@ function show(id){
       supaFetch('GET',null,'?order=created_at.desc','aisha_itema_xom_chiqim'),
       supaFetch('GET',null,'?order=created_at.desc','oqtosh_xom_chiqim'),
       supaFetch('GET',null,'?order=created_at.desc','partiya_chiqim'),
-      supaFetch('GET',null,'?order=created_at.desc','boyoq_chiqim')
+      supaFetch('GET',null,'?order=created_at.desc','boyoq_chiqim'),
+      supaFetch('GET',null,'?order=created_at.desc','aisha_yarim_chiqim'),
+      supaFetch('GET',null,'?order=created_at.desc','oqtosh_yarim1_chiqim'),
+      supaFetch('GET',null,'?order=created_at.desc','oqtosh_yarim2_chiqim')
     ]).then(function(results){
       if(results[0]) rows_toquvChiqim=results[0];
       window['rows_xomChiqim_a-xom-toyota']=results[1]||[];
@@ -4803,6 +5478,12 @@ function show(id){
       rows_partiyaChiqim=results[4]||[];
       rows_boyoqKirim=(results[4]||[]).filter(function(r){return r.qaerga==="Bo‘yoq";});
       rows_boyoqChiqim=results[5]||[];
+      window['rows_yarimKirim_a-yarim1']=(results[5]||[]).filter(function(r){return r.qaerga==='Aisha Yarim tayyor Ombor';});
+      window['rows_yarimChiqim_a-yarim1']=results[6]||[];
+      window['rows_yarimKirim_o-yarim1']=(results[5]||[]).filter(function(r){return r.qaerga==='Oqtosh Yarim tayyor Ombor-1';});
+      window['rows_yarimChiqim_o-yarim1']=results[7]||[];
+      window['rows_yarimKirim_o-yarim2']=(results[5]||[]).filter(function(r){return r.qaerga==='Oqtosh Yarim tayyor Ombor-2';});
+      window['rows_yarimChiqim_o-yarim2']=results[8]||[];
       renderZakazOstatka(null);
     });
   }
@@ -4881,6 +5562,45 @@ function show(id){
       }
     });
   }
+
+
+  // RULON OMBOR
+  if(id==='a-rulon-kirim'||id==='a-rulon-ostatka'||id==='a-rulon-chiqim'){
+    Promise.all([
+      supaFetch('GET',null,'?order=created_at.desc','boyoq_chiqim'),
+      supaFetch('GET',null,'?order=created_at.desc','rulon_chiqim')
+    ]).then(function(res){
+      window['rows_rulonKirim']=(res[0]||[]).filter(function(r){return r.qaerga==='Rulon Ombor';});
+      window['rows_rulonChiqim']=res[1]||[];
+      if(id==='a-rulon-kirim') renderRulonKirim();
+      if(id==='a-rulon-ostatka') renderRulonOstatka();
+      if(id==='a-rulon-chiqim') renderRulonChiqim();
+    });
+  }
+
+  // YARIM TAYYOR OMBOR
+  var yarimPids=['a-yarim1','o-yarim1','o-yarim2'];
+  var yarimTableMap={'a-yarim1':'aisha_yarim_chiqim','o-yarim1':'oqtosh_yarim1_chiqim','o-yarim2':'oqtosh_yarim2_chiqim'};
+  var yarimQaergaMap={'a-yarim1':'Aisha Yarim tayyor Ombor','o-yarim1':'Oqtosh Yarim tayyor Ombor-1','o-yarim2':'Oqtosh Yarim tayyor Ombor-2'};
+  for(var _yi=0;_yi<yarimPids.length;_yi++){
+    var _yp=yarimPids[_yi];
+    if(id===_yp+'-kirim'||id===_yp+'-ostatka'||id===_yp+'-chiqim'){
+      (function(ypid){
+        Promise.all([
+          supaFetch('GET',null,'?order=created_at.desc','boyoq_chiqim'),
+          supaFetch('GET',null,'?order=created_at.desc',yarimTableMap[ypid])
+        ]).then(function(res){
+          window['rows_yarimKirim_'+ypid]=(res[0]||[]).filter(function(r){return r.qaerga===yarimQaergaMap[ypid];});
+          window['rows_yarimChiqim_'+ypid]=res[1]||[];
+          if(id===ypid+'-kirim') renderYarimKirim(ypid);
+          if(id===ypid+'-ostatka') renderYarimOstatka(ypid);
+          if(id===ypid+'-chiqim') renderYarimChiqim(ypid);
+        });
+      })(_yp);
+      break;
+    }
+  }
+
   if(id==='boyoq-kirim'||id==='boyoq-ostatka'||id==='boyoq-chiqim'){
     supaFetch('GET',null,'?order=created_at.desc','partiya_chiqim').then(function(d){
       rows_boyoqKirim=(d||[]).filter(function(r){return r.qaerga==="Bo‘yoq";});
@@ -5048,6 +5768,372 @@ async function exportToquvOstatka(pid,title){
 }
 
 
+
+
+// ===== RULON OMBOR =====
+function renderRulonKirim(){
+  var tbody=document.getElementById('a-rulon-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_rulonKirim']||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yo‘q</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f472b6;font-size:12px">'+(r.kimdan||"Bo‘yoq")+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById('a-rulon-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById('a-rulon-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById('a-rulon-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderRulonOstatka(){
+  var tbody=document.getElementById('a-rulon-ostatka-tbody');
+  if(!tbody) return;
+  var kirimRows=window['rows_rulonKirim']||[];
+  var chiqimRows=window['rows_rulonChiqim']||[];
+  var kGrp={},cGrp={};
+  kirimRows.forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br=Math.round((kGrp[r.nomi].br+(+r.br||0))*100)/100;kGrp[r.nomi].nt=Math.round((kGrp[r.nomi].nt+(+r.nt||0))*100)/100;kGrp[r.nomi].sht=Math.round((kGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  chiqimRows.forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br=Math.round((cGrp[r.nomi].br+(+r.br||0))*100)/100;cGrp[r.nomi].nt=Math.round((cGrp[r.nomi].nt+(+r.nt||0))*100)/100;cGrp[r.nomi].sht=Math.round((cGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  var names=Object.keys(kGrp);
+  if(!names.length){tbody.innerHTML='<tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Kirim yo‘q</td></tr>';return;}
+  var result=names.map(function(nomi){
+    var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    return {nomi:nomi,kBr:k.br,kNt:k.nt,kSht:k.sht,
+      oBr:Math.round((k.br-c.br)*100)/100,oNt:Math.round((k.nt-c.nt)*100)/100,oSht:Math.round((k.sht-c.sht)*100)/100,
+      cBr:c.br,cNt:c.nt,cSht:c.sht};
+  });
+  tbody.innerHTML=result.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    var tc=function(v){return v<0?'#f87171':'#fcd34d';};
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:9px 8px;text-align:center;color:#64748b;border-right:1px solid #1e2a3a">'+(i+1)+'</td>'+
+      '<td style="padding:9px 8px;color:#fff;font-weight:500;border-right:1px solid #1e2a3a">'+r.nomi+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#c7d2fe">'+fmt(r.kBr)+'</td><td style="padding:9px 8px;text-align:center;color:#c7d2fe">'+fmt(r.kNt)+'</td><td style="padding:9px 8px;text-align:center;color:#c7d2fe;border-right:1px solid #1e2a3a">'+fmt(r.kSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+tc(r.oBr)+'">'+fmt(r.oBr)+'</td><td style="padding:9px 8px;text-align:center;color:'+tc(r.oNt)+'">'+fmt(r.oNt)+'</td><td style="padding:9px 8px;text-align:center;color:'+tc(r.oSht)+';border-right:1px solid #1e2a3a">'+fmt(r.oSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cBr)+'</td><td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cNt)+'</td><td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cSht)+'</td>'+
+      '</tr>';
+  }).join('');
+  var el=function(id,v){var e=document.getElementById(id);if(e)e.textContent=fmt(v);};
+  el('a-rulon-ostatka-k-br',result.reduce(function(s,r){return s+r.kBr;},0));el('a-rulon-ostatka-k-nt',result.reduce(function(s,r){return s+r.kNt;},0));el('a-rulon-ostatka-k-sht',result.reduce(function(s,r){return s+r.kSht;},0));
+  el('a-rulon-ostatka-o-br',result.reduce(function(s,r){return s+r.oBr;},0));el('a-rulon-ostatka-o-nt',result.reduce(function(s,r){return s+r.oNt;},0));el('a-rulon-ostatka-o-sht',result.reduce(function(s,r){return s+r.oSht;},0));
+  el('a-rulon-ostatka-c-br',result.reduce(function(s,r){return s+r.cBr;},0));el('a-rulon-ostatka-c-nt',result.reduce(function(s,r){return s+r.cNt;},0));el('a-rulon-ostatka-c-sht',result.reduce(function(s,r){return s+r.cSht;},0));
+}
+
+function renderRulonChiqim(){
+  var tbody=document.getElementById('a-rulon-chiqim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_rulonChiqim']||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yo‘q</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'Rulon Ombor')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#5eead4;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '<td style="padding:10px;text-align:center"><button data-id="'+r.id+'" onclick="deleteRulonChiqim(this.dataset.id)" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">X</button></td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById('a-rulon-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById('a-rulon-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById('a-rulon-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function deleteRulonChiqim(id){
+  if(!confirm('O‘chirilsinmi?')) return;
+  supaFetch('DELETE',null,'?id=eq.'+id,'rulon_chiqim').then(function(){
+    supaFetch('GET',null,'?order=created_at.desc','rulon_chiqim').then(function(d){
+      window['rows_rulonChiqim']=d||[];renderRulonChiqim();renderRulonOstatka();
+    });
+  });
+}
+
+function openRulonChiqimModal(){
+  document.getElementById('rulon-chiqim-br').value='';
+  document.getElementById('rulon-chiqim-nt').value='';
+  document.getElementById('rulon-chiqim-sht').value='';
+  document.getElementById('rulon-chiqim-qaerga').value='';
+  var list=document.getElementById('rulon-chiqim-zakaz-list');list.innerHTML='';
+  var kGrp={},cGrp={};
+  (window['rows_rulonKirim']||[]).forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br=Math.round((kGrp[r.nomi].br+(+r.br||0))*100)/100;kGrp[r.nomi].nt=Math.round((kGrp[r.nomi].nt+(+r.nt||0))*100)/100;kGrp[r.nomi].sht=Math.round((kGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  (window['rows_rulonChiqim']||[]).forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br=Math.round((cGrp[r.nomi].br+(+r.br||0))*100)/100;cGrp[r.nomi].nt=Math.round((cGrp[r.nomi].nt+(+r.nt||0))*100)/100;cGrp[r.nomi].sht=Math.round((cGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  var opts=[];
+  Object.keys(kGrp).forEach(function(nomi){
+    var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    var oBr=Math.round((k.br-c.br)*100)/100,oNt=Math.round((k.nt-c.nt)*100)/100,oSht=Math.round((k.sht-c.sht)*100)/100;
+    if(oSht>0) opts.push({label:nomi+' (Br:'+oBr+' Nt:'+oNt+' Sht:'+oSht+')',value:nomi,br:oBr,nt:oNt,sht:oSht});
+  });
+  var sw=makeSearchableSelect(opts,function(o){document.getElementById('rulon-chiqim-br').value=o.br||0;document.getElementById('rulon-chiqim-nt').value=o.nt||0;document.getElementById('rulon-chiqim-sht').value=o.sht||0;});
+  list._sw=sw;list.appendChild(sw);
+  document.getElementById('rulon-chiqim-modal').style.display='flex';
+}
+
+function saveRulonChiqim(){
+  var nomi=document.getElementById('rulon-chiqim-zakaz-list')._sw?document.getElementById('rulon-chiqim-zakaz-list')._sw.getValue():'';
+  var br=document.getElementById('rulon-chiqim-br').value.trim();
+  var nt=document.getElementById('rulon-chiqim-nt').value.trim();
+  var sht=document.getElementById('rulon-chiqim-sht').value.trim();
+  var qaerga=document.getElementById('rulon-chiqim-qaerga').value;
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  if(!sht){alert('Sht kiriting!');return;}
+  if(!qaerga){alert('Qaerga tanlang!');return;}
+  var kSht=(window['rows_rulonKirim']||[]).filter(function(r){return r.nomi===nomi;}).reduce(function(s,r){return s+(+r.sht||0);},0);
+  var cSht=(window['rows_rulonChiqim']||[]).filter(function(r){return r.nomi===nomi;}).reduce(function(s,r){return s+(+r.sht||0);},0);
+  if(+sht>Math.round((kSht-cSht)*100)/100){alert('Xatolik! Ostatka: '+Math.round((kSht-cSht)*100)/100+' Sht!');return;}
+  var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
+  var row={nomi:nomi,br:+br||0,nt:+nt||0,sht:+sht,kimdan:'Rulon Ombor',qaerga:qaerga,vaqt:vaqt};
+  document.getElementById('rulon-chiqim-modal').style.display='none';
+  supaFetch('POST',row,'','rulon_chiqim').then(function(){
+    supaFetch('GET',null,'?order=created_at.desc','rulon_chiqim').then(function(d){
+      window['rows_rulonChiqim']=d||[];renderRulonChiqim();renderRulonOstatka();
+    });
+  });
+}
+
+async function exportRulonKirim(){
+  var rows=window['rows_rulonKirim']||[];
+  await excelExport('Rulon Ombor kunlik kirim',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:10,get:function(r){return +r.br||0;}},{label:'Nt',width:10,get:function(r){return +r.nt||0;}},{label:'Sht',width:10,get:function(r){return +r.sht||0;}},
+     {label:'Kimdan',width:24,get:function(r){return r.kimdan||'';}},{label:'Vaqt',width:18,get:function(r){return r.vaqt||'';}}],
+    rows,'Rulon_Kirim','818cf8','EDE9FE');
+}
+
+async function exportRulonOstatka(){
+  var kGrp={},cGrp={};
+  (window['rows_rulonKirim']||[]).forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br+=+r.br||0;kGrp[r.nomi].nt+=+r.nt||0;kGrp[r.nomi].sht+=+r.sht||0;});
+  (window['rows_rulonChiqim']||[]).forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br+=+r.br||0;cGrp[r.nomi].nt+=+r.nt||0;cGrp[r.nomi].sht+=+r.sht||0;});
+  var result=Object.keys(kGrp).map(function(nomi){var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};return {nomi:nomi,kBr:k.br,kNt:k.nt,kSht:k.sht,oBr:Math.round((k.br-c.br)*100)/100,oNt:Math.round((k.nt-c.nt)*100)/100,oSht:Math.round((k.sht-c.sht)*100)/100,cBr:c.br,cNt:c.nt,cSht:c.sht};});
+  await excelExport('Rulon Ombor ostatka',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi;}},
+     {label:'Br',width:10,get:function(r){return r.kBr;}},{label:'Nt',width:10,get:function(r){return r.kNt;}},{label:'Sht',width:10,get:function(r){return r.kSht;}},
+     {label:'Br',width:10,get:function(r){return r.oBr;}},{label:'Nt',width:10,get:function(r){return r.oNt;}},{label:'Sht',width:10,get:function(r){return r.oSht;}},
+     {label:'Br',width:10,get:function(r){return r.cBr;}},{label:'Nt',width:10,get:function(r){return r.cNt;}},{label:'Sht',width:10,get:function(r){return r.cSht;}}],
+    result,'Rulon_Ostatka','818cf8','EDE9FE',
+    [{label:'Kirim',cols:3,hColor:'818cf8',rColor:'EDE9FE'},{label:'Ostatka',cols:3,hColor:'92400E',rColor:'FEF3C7'},{label:'Chiqim',cols:3,hColor:'991B1B',rColor:'FEE2E2'}]);
+}
+
+async function exportRulonChiqim(){
+  var rows=window['rows_rulonChiqim']||[];
+  await excelExport('Rulon Ombor kunlik chiqim',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:10,get:function(r){return +r.br||0;}},{label:'Nt',width:10,get:function(r){return +r.nt||0;}},{label:'Sht',width:10,get:function(r){return +r.sht||0;}},
+     {label:'Kimdan',width:24,get:function(r){return r.kimdan||'';}},{label:'Qaerga',width:24,get:function(r){return r.qaerga||'';}},{label:'Vaqt',width:18,get:function(r){return r.vaqt||'';}}],
+    rows,'Rulon_Chiqim','991B1B','FEE2E2');
+}
+
+// ===== YARIM TAYYOR OMBOR =====
+
+// ===== YARIM TAYYOR OMBOR =====
+var _yarimPid = '';
+
+function renderYarimKirim(pid){
+  var tbody=document.getElementById(pid+'-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_yarimKirim_'+pid]||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yo‘q</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f472b6;font-size:12px">'+(r.kimdan||"Bo‘yoq")+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderYarimOstatka(pid){
+  var tbody=document.getElementById(pid+'-ostatka-tbody');
+  if(!tbody) return;
+  var kirimRows=window['rows_yarimKirim_'+pid]||[];
+  var chiqimRows=window['rows_yarimChiqim_'+pid]||[];
+  var kGrp={},cGrp={};
+  kirimRows.forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br=Math.round((kGrp[r.nomi].br+(+r.br||0))*100)/100;kGrp[r.nomi].nt=Math.round((kGrp[r.nomi].nt+(+r.nt||0))*100)/100;kGrp[r.nomi].sht=Math.round((kGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  chiqimRows.forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br=Math.round((cGrp[r.nomi].br+(+r.br||0))*100)/100;cGrp[r.nomi].nt=Math.round((cGrp[r.nomi].nt+(+r.nt||0))*100)/100;cGrp[r.nomi].sht=Math.round((cGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  var names=Object.keys(kGrp);
+  if(!names.length){tbody.innerHTML='<tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Kirim yo‘q</td></tr>';return;}
+  var result=names.map(function(nomi){
+    var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    return {nomi:nomi,kBr:k.br,kNt:k.nt,kSht:k.sht,
+      oBr:Math.round((k.br-c.br)*100)/100,oNt:Math.round((k.nt-c.nt)*100)/100,oSht:Math.round((k.sht-c.sht)*100)/100,
+      cBr:c.br,cNt:c.nt,cSht:c.sht};
+  });
+  tbody.innerHTML=result.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    var tc=function(v){return v<0?'#f87171':'#fcd34d';};
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:9px 8px;text-align:center;color:#64748b;border-right:1px solid #1e2a3a">'+(i+1)+'</td>'+
+      '<td style="padding:9px 8px;color:#fff;font-weight:500;border-right:1px solid #1e2a3a">'+r.nomi+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#c7d2fe">'+fmt(r.kBr)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#c7d2fe">'+fmt(r.kNt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#c7d2fe;border-right:1px solid #1e2a3a">'+fmt(r.kSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+tc(r.oBr)+'">'+fmt(r.oBr)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+tc(r.oNt)+'">'+fmt(r.oNt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:'+tc(r.oSht)+';border-right:1px solid #1e2a3a">'+fmt(r.oSht)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cBr)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cNt)+'</td>'+
+      '<td style="padding:9px 8px;text-align:center;color:#fca5a5">'+fmt(r.cSht)+'</td>'+
+      '</tr>';
+  }).join('');
+  var el=function(id,v){var e=document.getElementById(id);if(e)e.textContent=fmt(v);};
+  el(pid+'-ostatka-k-br',result.reduce(function(s,r){return s+r.kBr;},0));
+  el(pid+'-ostatka-k-nt',result.reduce(function(s,r){return s+r.kNt;},0));
+  el(pid+'-ostatka-k-sht',result.reduce(function(s,r){return s+r.kSht;},0));
+  el(pid+'-ostatka-o-br',result.reduce(function(s,r){return s+r.oBr;},0));
+  el(pid+'-ostatka-o-nt',result.reduce(function(s,r){return s+r.oNt;},0));
+  el(pid+'-ostatka-o-sht',result.reduce(function(s,r){return s+r.oSht;},0));
+  el(pid+'-ostatka-c-br',result.reduce(function(s,r){return s+r.cBr;},0));
+  el(pid+'-ostatka-c-nt',result.reduce(function(s,r){return s+r.cNt;},0));
+  el(pid+'-ostatka-c-sht',result.reduce(function(s,r){return s+r.cSht;},0));
+}
+
+function filterYarimOstatka(pid){
+  renderYarimOstatka(pid);
+}
+
+function renderYarimChiqim(pid){
+  var tbody=document.getElementById(pid+'-chiqim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_yarimChiqim_'+pid]||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yo‘q</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#5eead4;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '<td style="padding:10px;text-align:center"><button data-pid="'+pid+'" data-id="'+r.id+'" onclick="deleteYarimChiqim(this.dataset.pid,this.dataset.id)" style="background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">X</button></td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function deleteYarimChiqim(pid, id){
+  if(!confirm('O‘chirilsinmi?')) return;
+  var yarimTableMap={'a-yarim1':'aisha_yarim_chiqim','o-yarim1':'oqtosh_yarim1_chiqim','o-yarim2':'oqtosh_yarim2_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,yarimTableMap[pid]).then(function(){
+    supaFetch('GET',null,'?order=created_at.desc',yarimTableMap[pid]).then(function(d){
+      window['rows_yarimChiqim_'+pid]=d||[];
+      renderYarimChiqim(pid);
+      renderYarimOstatka(pid);
+    });
+  });
+}
+
+function openYarimChiqimModal(pid){
+  _yarimPid=pid;
+  var titles={'a-yarim1':'Aisha Yarim tayyor Ombor','o-yarim1':'Oqtosh Yarim tayyor Ombor-1','o-yarim2':'Oqtosh Yarim tayyor Ombor-2'};
+  document.getElementById('yarim-chiqim-modal-title').textContent=titles[pid]+' chiqim';
+  document.getElementById('yarim-chiqim-br').value='';
+  document.getElementById('yarim-chiqim-nt').value='';
+  document.getElementById('yarim-chiqim-sht').value='';
+  document.getElementById('yarim-chiqim-qaerga').value='';
+  var list=document.getElementById('yarim-chiqim-zakaz-list');list.innerHTML='';
+  var kGrp={},cGrp={};
+  (window['rows_yarimKirim_'+pid]||[]).forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br=Math.round((kGrp[r.nomi].br+(+r.br||0))*100)/100;kGrp[r.nomi].nt=Math.round((kGrp[r.nomi].nt+(+r.nt||0))*100)/100;kGrp[r.nomi].sht=Math.round((kGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  (window['rows_yarimChiqim_'+pid]||[]).forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br=Math.round((cGrp[r.nomi].br+(+r.br||0))*100)/100;cGrp[r.nomi].nt=Math.round((cGrp[r.nomi].nt+(+r.nt||0))*100)/100;cGrp[r.nomi].sht=Math.round((cGrp[r.nomi].sht+(+r.sht||0))*100)/100;});
+  var opts=[];
+  Object.keys(kGrp).forEach(function(nomi){
+    var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    var oBr=Math.round((k.br-c.br)*100)/100,oNt=Math.round((k.nt-c.nt)*100)/100,oSht=Math.round((k.sht-c.sht)*100)/100;
+    if(oSht>0) opts.push({label:nomi+' (Br:'+oBr+' Nt:'+oNt+' Sht:'+oSht+')',value:nomi,br:oBr,nt:oNt,sht:oSht});
+  });
+  var sw=makeSearchableSelect(opts,function(o){
+    document.getElementById('yarim-chiqim-br').value=o.br||0;
+    document.getElementById('yarim-chiqim-nt').value=o.nt||0;
+    document.getElementById('yarim-chiqim-sht').value=o.sht||0;
+  });
+  list._sw=sw;list.appendChild(sw);
+  document.getElementById('yarim-chiqim-modal').style.display='flex';
+}
+
+function saveYarimChiqim(){
+  var yarimTableMap={'a-yarim1':'aisha_yarim_chiqim','o-yarim1':'oqtosh_yarim1_chiqim','o-yarim2':'oqtosh_yarim2_chiqim'};
+  var titles={'a-yarim1':'Aisha Yarim tayyor Ombor','o-yarim1':'Oqtosh Yarim tayyor Ombor-1','o-yarim2':'Oqtosh Yarim tayyor Ombor-2'};
+  var nomi=document.getElementById('yarim-chiqim-zakaz-list')._sw?document.getElementById('yarim-chiqim-zakaz-list')._sw.getValue():'';
+  var br=document.getElementById('yarim-chiqim-br').value.trim();
+  var nt=document.getElementById('yarim-chiqim-nt').value.trim();
+  var sht=document.getElementById('yarim-chiqim-sht').value.trim();
+  var qaerga=document.getElementById('yarim-chiqim-qaerga').value;
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  if(!sht){alert('Sht kiriting!');return;}
+  if(!qaerga){alert('Qaerga tanlang!');return;}
+  var kSht=(window['rows_yarimKirim_'+_yarimPid]||[]).filter(function(r){return r.nomi===nomi;}).reduce(function(s,r){return s+(+r.sht||0);},0);
+  var cSht=(window['rows_yarimChiqim_'+_yarimPid]||[]).filter(function(r){return r.nomi===nomi;}).reduce(function(s,r){return s+(+r.sht||0);},0);
+  var ostSht=Math.round((kSht-cSht)*100)/100;
+  if(+sht>ostSht){alert('Xatolik! Ostatka: '+ostSht+' Sht!');return;}
+  var now=new Date(),uz=new Date(now.getTime()+5*60*60*1000),iso=uz.toISOString();
+  var vaqt=iso.slice(8,10)+'.'+iso.slice(5,7)+'.'+iso.slice(0,4)+' '+iso.slice(11,16);
+  var row={nomi:nomi,br:+br||0,nt:+nt||0,sht:+sht,kimdan:titles[_yarimPid],qaerga:qaerga,vaqt:vaqt};
+  document.getElementById('yarim-chiqim-modal').style.display='none';
+  supaFetch('POST',row,'',yarimTableMap[_yarimPid]).then(function(){
+    supaFetch('GET',null,'?order=created_at.desc',yarimTableMap[_yarimPid]).then(function(d){
+      window['rows_yarimChiqim_'+_yarimPid]=d||[];
+      renderYarimChiqim(_yarimPid);
+      renderYarimOstatka(_yarimPid);
+    });
+  });
+}
+
+async function exportYarimKirim(pid,title){
+  var rows=window['rows_yarimKirim_'+pid]||[];
+  await excelExport(title+' kunlik kirim',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:10,get:function(r){return +r.br||0;}},{label:'Nt',width:10,get:function(r){return +r.nt||0;}},{label:'Sht',width:10,get:function(r){return +r.sht||0;}},
+     {label:'Kimdan',width:24,get:function(r){return r.kimdan||'';}},{label:'Vaqt',width:18,get:function(r){return r.vaqt||'';}}],
+    rows,(title+'_kirim').replace(/ /g,'_'),'818cf8','EDE9FE');
+}
+
+async function exportYarimOstatka(pid,title){
+  var kirimRows=window['rows_yarimKirim_'+pid]||[];
+  var chiqimRows=window['rows_yarimChiqim_'+pid]||[];
+  var kGrp={},cGrp={};
+  kirimRows.forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br+=+r.br||0;kGrp[r.nomi].nt+=+r.nt||0;kGrp[r.nomi].sht+=+r.sht||0;});
+  chiqimRows.forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br+=+r.br||0;cGrp[r.nomi].nt+=+r.nt||0;cGrp[r.nomi].sht+=+r.sht||0;});
+  var result=Object.keys(kGrp).map(function(nomi){var k=kGrp[nomi],c=cGrp[nomi]||{br:0,nt:0,sht:0};return {nomi:nomi,kBr:k.br,kNt:k.nt,kSht:k.sht,oBr:Math.round((k.br-c.br)*100)/100,oNt:Math.round((k.nt-c.nt)*100)/100,oSht:Math.round((k.sht-c.sht)*100)/100,cBr:c.br,cNt:c.nt,cSht:c.sht};});
+  await excelExport(title+' ostatka',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi;}},
+     {label:'Br',width:10,get:function(r){return r.kBr;}},{label:'Nt',width:10,get:function(r){return r.kNt;}},{label:'Sht',width:10,get:function(r){return r.kSht;}},
+     {label:'Br',width:10,get:function(r){return r.oBr;}},{label:'Nt',width:10,get:function(r){return r.oNt;}},{label:'Sht',width:10,get:function(r){return r.oSht;}},
+     {label:'Br',width:10,get:function(r){return r.cBr;}},{label:'Nt',width:10,get:function(r){return r.cNt;}},{label:'Sht',width:10,get:function(r){return r.cSht;}}],
+    result,(title+'_ostatka').replace(/ /g,'_'),'818cf8','EDE9FE',
+    [{label:'Kirim',cols:3,hColor:'818cf8',rColor:'EDE9FE'},{label:'Ostatka',cols:3,hColor:'92400E',rColor:'FEF3C7'},{label:'Chiqim',cols:3,hColor:'991B1B',rColor:'FEE2E2'}]);
+}
+
+async function exportYarimChiqim(pid,title){
+  var rows=window['rows_yarimChiqim_'+pid]||[];
+  await excelExport(title+' kunlik chiqim',
+    [{label:'#',width:5,get:function(r,i){return i+1;}},{label:'Zakaz',width:28,get:function(r){return r.nomi||'';}},
+     {label:'Br',width:10,get:function(r){return +r.br||0;}},{label:'Nt',width:10,get:function(r){return +r.nt||0;}},{label:'Sht',width:10,get:function(r){return +r.sht||0;}},
+     {label:'Kimdan',width:24,get:function(r){return r.kimdan||'';}},{label:'Qaerga',width:24,get:function(r){return r.qaerga||'';}},{label:'Vaqt',width:18,get:function(r){return r.vaqt||'';}}],
+    rows,(title+'_chiqim').replace(/ /g,'_'),'991B1B','FEE2E2');
+}
 
 // ===== BOYOQXONA YANGI FUNKSIYALAR =====
 function renderBoyoqKirimNew(){
@@ -5846,6 +6932,64 @@ async function exportToquvKunlikChiqim(pid,title){
     <div style="display:flex;gap:10px">
       <button onclick="saveXomChiqimNew()" style="flex:1;padding:11px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
       <button onclick="document.getElementById('xom-chiqim-new-modal').style.display='none'" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+    </div>
+  </div>
+</div>
+
+<!-- YARIM TAYYOR OMBOR CHIQIM MODAL -->
+<div id="yarim-chiqim-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center">
+  <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:500px;margin:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <span id="yarim-chiqim-modal-title" style="font-size:16px;font-weight:700;color:#fff">Chiqim qo‘shish</span>
+      <button onclick="document.getElementById('yarim-chiqim-modal').style.display='none'" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:22px;line-height:1">&#x2715;</button>
+    </div>
+    <div style="margin-bottom:14px">
+      <label style="font-size:12px;color:#64748b;display:block;margin-bottom:6px">Zakaz tanlang <span style="color:#f87171">*</span></label>
+      <div id="yarim-chiqim-zakaz-list"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br</label><input id="yarim-chiqim-br" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt</label><input id="yarim-chiqim-nt" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="yarim-chiqim-sht" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <label style="font-size:12px;color:#64748b;display:block;margin-bottom:6px">Qaerga <span style="color:#f87171">*</span></label>
+      <input id="yarim-chiqim-qaerga" placeholder="Qaerga (masalan: Chevarxona)" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button onclick="saveYarimChiqim()" style="flex:1;padding:11px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+      <button onclick="document.getElementById('yarim-chiqim-modal').style.display='none'" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
+    </div>
+  </div>
+</div>
+
+<!-- RULON CHIQIM MODAL -->
+<div id="rulon-chiqim-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:9999;justify-content:center;align-items:center">
+  <div style="background:#16162a;border:1px solid #2a2a45;border-radius:16px;padding:28px;width:100%;max-width:500px;margin:20px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+      <span style="font-size:16px;font-weight:700;color:#fff">Rulon Ombor chiqim</span>
+      <button onclick="document.getElementById('rulon-chiqim-modal').style.display='none'" style="background:none;border:none;color:#64748b;cursor:pointer;font-size:22px;line-height:1">&#x2715;</button>
+    </div>
+    <div style="margin-bottom:14px">
+      <label style="font-size:12px;color:#64748b;display:block;margin-bottom:6px">Zakaz tanlang <span style="color:#f87171">*</span></label>
+      <div id="rulon-chiqim-zakaz-list"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px">
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Br</label><input id="rulon-chiqim-br" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Nt</label><input id="rulon-chiqim-nt" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+      <div><label style="font-size:12px;color:#64748b;display:block;margin-bottom:4px">Sht <span style="color:#f87171">*</span></label><input id="rulon-chiqim-sht" type="number" style="width:100%;padding:9px 12px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none"/></div>
+    </div>
+    <div style="margin-bottom:14px">
+      <label style="font-size:12px;color:#64748b;display:block;margin-bottom:6px">Qaerga <span style="color:#f87171">*</span></label>
+      <select id="rulon-chiqim-qaerga" style="width:100%;padding:10px 14px;background:#0f0f1a;border:1px solid #2a2a45;border-radius:8px;color:#fff;font-size:14px;font-family:Inter,sans-serif;outline:none;cursor:pointer">
+        <option value="">-- Tanlang --</option>
+        <option value="Aisha TMO">Aisha TMO</option>
+        <option value="Oqtosh TMO">Oqtosh TMO</option>
+      </select>
+    </div>
+    <div style="display:flex;gap:10px">
+      <button onclick="saveRulonChiqim()" style="flex:1;padding:11px;background:#6366f1;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:Inter,sans-serif">Saqlash</button>
+      <button onclick="document.getElementById('rulon-chiqim-modal').style.display='none'" style="padding:11px 20px;background:#1e1e35;color:#94a3b8;border:none;border-radius:10px;font-size:14px;cursor:pointer;font-family:Inter,sans-serif">Bekor</button>
     </div>
   </div>
 </div>
