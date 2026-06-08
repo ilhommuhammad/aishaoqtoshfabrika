@@ -7045,6 +7045,346 @@ function _renderOcCard(elId, rows, sana){
     '</div>';
 }
 
+// ===== DELETE FUNKSIYALAR =====
+function deleteToquvChiqim(id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  var tmoChiqimMap={'a-tmo':'aisha_tmo_chiqim','o-tmo':'oqtosh_tmo_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,'toquv_chiqim').then(function(){
+    rows_toquvChiqim=(rows_toquvChiqim||[]).filter(function(r){return r.id!==+id;});
+  });
+}
+
+function deleteXomChiqimNew(pid,id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  var xomMap={'a-xom-toyota':'aisha_toyota_xom_chiqim','a-xom-itema':'aisha_itema_xom_chiqim','o-xom':'oqtosh_xom_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,xomMap[pid]).then(function(){
+    var key='rows_xomChiqim_'+pid;
+    window[key]=(window[key]||[]).filter(function(r){return r.id!==+id;});
+    renderXomChiqimNew(pid); renderXomOstatkaNew(pid,null);
+  });
+}
+
+function deletePartiyaChiqimNew(id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  supaFetch('DELETE',null,'?id=eq.'+id,'partiya_chiqim').then(function(){
+    rows_partiyaChiqim=(rows_partiyaChiqim||[]).filter(function(r){return r.id!==+id;});
+    renderPartiyaChiqimNew(); renderPartiyaOstatkaNew();
+  });
+}
+
+function deleteBoyoqChiqim(id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  supaFetch('DELETE',null,'?id=eq.'+id,'boyoq_chiqim').then(function(){
+    rows_boyoqChiqim=(rows_boyoqChiqim||[]).filter(function(r){return r.id!==+id;});
+    renderBoyoqChiqimNew(); renderBoyoqOstatkaNew();
+  });
+}
+
+function deleteRulonChiqim(id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  supaFetch('DELETE',null,'?id=eq.'+id,'rulon_chiqim').then(function(){
+    window['rows_rulonChiqim']=(window['rows_rulonChiqim']||[]).filter(function(r){return r.id!==+id;});
+    renderRulonChiqim(); renderRulonOstatka();
+  });
+}
+
+function deleteYarimChiqim(pid,id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  var yarimMap={'a-yarim1':'aisha_yarim_chiqim','o-yarim1':'oqtosh_yarim1_chiqim','o-yarim2':'oqtosh_yarim2_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,yarimMap[pid]).then(function(){
+    var key='rows_yarimChiqim_'+pid;
+    window[key]=(window[key]||[]).filter(function(r){return r.id!==+id;});
+    renderYarimChiqim(pid); renderYarimOstatka(pid);
+  });
+}
+
+function deleteChevarChiqim(pid,id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  var chiqimMap={'a-chevar1':'aisha_chevar1_chiqim','a-chevar2':'aisha_chevar2_chiqim','o-chevar1':'oqtosh_chevar1_chiqim','o-chevar2':'oqtosh_chevar2_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,chiqimMap[pid]).then(function(){
+    var key='rows_chevarChiqim_'+pid;
+    window[key]=(window[key]||[]).filter(function(r){return r.id!==+id;});
+    renderChevarChiqim(pid); renderChevarOstatka(pid);
+  });
+}
+
+function deleteTmoChiqim(pid,id){
+  if(!isAdmin()) return;
+  if(!confirm('O\'chirilsinmi?')) return;
+  var tmoMap={'a-tmo':'aisha_tmo_chiqim','o-tmo':'oqtosh_tmo_chiqim'};
+  supaFetch('DELETE',null,'?id=eq.'+id,tmoMap[pid]).then(function(){
+    var key='rows_tmoChiqim_'+pid;
+    window[key]=(window[key]||[]).filter(function(r){return r.id!==+id;});
+    renderTmoChiqim(pid); renderTmoOstatka(pid);
+  });
+}
+
+// ===== OPEN MODAL FUNKSIYALAR =====
+var _xomChiqimPid='';
+function openXomChiqimModalNew(pid){
+  if(!canEdit(pid)){showLoginModal();return;}
+  _xomChiqimPid=pid;
+  var titles={'a-xom-toyota':'Aisha Xom Ombor Toyota','a-xom-itema':'Aisha Xom Ombor Itema','o-xom':'Oqtosh Xom Ombor'};
+  document.getElementById('xom-chiqim-new-modal-title').textContent=titles[pid]+' chiqim qo\'shish';
+  document.getElementById('xom-chiqim-new-br').value='';
+  document.getElementById('xom-chiqim-new-nt').value='';
+  document.getElementById('xom-chiqim-new-sht').value='';
+  document.getElementById('xom-chiqim-new-modal').style.display='flex';
+  var list=document.getElementById('xom-chiqim-new-zakaz-list');
+  if(list){
+    list.innerHTML='';
+    (rows_zakazlar||[]).forEach(function(z){
+      var o=document.createElement('option');
+      o.value=z.nomi; o.dataset.br=z.br; o.dataset.nt=z.nt; o.dataset.sht=z.sht;
+      list.appendChild(o);
+    });
+  }
+}
+
+var _partiyaChiqimPid='a-partiya';
+function openPartiyaChiqimModalNew(){
+  if(!canEdit('a-partiya')){showLoginModal();return;}
+  document.getElementById('partiya-chiqim-new-br').value='';
+  document.getElementById('partiya-chiqim-new-nt').value='';
+  document.getElementById('partiya-chiqim-new-sht').value='';
+  document.getElementById('partiya-chiqim-new-modal').style.display='flex';
+}
+
+function openBoyoqChiqimModalNew(){
+  if(!canEdit('a-boyoq')){showLoginModal();return;}
+  document.getElementById('boyoq-chiqim-new-br').value='';
+  document.getElementById('boyoq-chiqim-new-nt').value='';
+  document.getElementById('boyoq-chiqim-new-sht').value='';
+  document.getElementById('boyoq-chiqim-new-modal').style.display='flex';
+}
+
+var _rulonChiqimId=null;
+function openRulonChiqimModal(){
+  if(!canEdit('a-rulon')){showLoginModal();return;}
+  _rulonChiqimId=null;
+  document.getElementById('rulon-chiqim-br').value='';
+  document.getElementById('rulon-chiqim-nt').value='';
+  document.getElementById('rulon-chiqim-sht').value='';
+  document.getElementById('rulon-chiqim-modal').style.display='flex';
+}
+
+var _yarimPid='';
+function openYarimChiqimModal(pid){
+  if(!canEdit(pid)){showLoginModal();return;}
+  _yarimPid=pid;
+  var titles={'a-yarim1':'Aisha Yarim tayyor Ombor','o-yarim1':'Oqtosh Yarim tayyor Ombor-1','o-yarim2':'Oqtosh Yarim tayyor Ombor-2'};
+  document.getElementById('yarim-chiqim-modal-title').textContent=titles[pid]+' chiqim';
+  document.getElementById('yarim-chiqim-br').value='';
+  document.getElementById('yarim-chiqim-nt').value='';
+  document.getElementById('yarim-chiqim-sht').value='';
+  document.getElementById('yarim-chiqim-modal').style.display='flex';
+}
+
+var _chevarChiqimPid='';
+function openChevarChiqimModal(pid){
+  if(!canEdit(pid)){showLoginModal();return;}
+  _chevarChiqimPid=pid;
+  var titles={'a-chevar1':'Aisha Chevarxona-1','a-chevar2':'Aisha Chevarxona-2','o-chevar1':'Oqtosh Chevarxona-1','o-chevar2':'Oqtosh Chevarxona-2'};
+  document.getElementById('chevar-chiqim-modal-title').textContent=titles[pid]+' chiqim';
+  document.getElementById('chevar-chiqim-br').value='';
+  document.getElementById('chevar-chiqim-nt').value='';
+  document.getElementById('chevar-chiqim-sht').value='';
+  document.getElementById('chevar-chiqim-modal').style.display='flex';
+}
+
+var _tmoPid='';
+function openTmoChiqimModal(pid){
+  if(!canEdit(pid)){showLoginModal();return;}
+  _tmoPid=pid;
+  var titles={'a-tmo':'Aisha TMO','o-tmo':'Oqtosh TMO'};
+  document.getElementById('tmo-chiqim-modal-title').textContent=titles[pid]+' chiqim';
+  document.getElementById('tmo-chiqim-br').value='';
+  document.getElementById('tmo-chiqim-nt').value='';
+  document.getElementById('tmo-chiqim-sht').value='';
+  document.getElementById('tmo-chiqim-modal').style.display='flex';
+}
+
+function openToquvKunlikChiqimModal(pid){
+  if(!canEdit(pid)){showLoginModal();return;}
+  var modal=document.getElementById('toquv-kunlik-chiqim-modal');
+  if(modal) modal.style.display='flex';
+}
+
+// ===== SAVE FUNKSIYALAR =====
+async function saveXomChiqimNew(){
+  var pid=_xomChiqimPid;
+  var xomMap={'a-xom-toyota':'aisha_toyota_xom_chiqim','a-xom-itema':'aisha_itema_xom_chiqim','o-xom':'oqtosh_xom_chiqim'};
+  var qaergaMap={'a-xom-toyota':'Aisha Xom Ombor Toyota','a-xom-itema':'Aisha Xom Ombor Itema','o-xom':'Oqtosh Xom Ombor'};
+  var nomiEl=document.getElementById('xom-chiqim-new-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('xom-chiqim-new-br').value||0,
+    nt:+document.getElementById('xom-chiqim-new-nt').value||0,
+    sht:+document.getElementById('xom-chiqim-new-sht').value||0,
+    kimdan:document.getElementById('xom-chiqim-new-kimdan')?document.getElementById('xom-chiqim-new-kimdan').value:'',
+    qaerga:qaergaMap[pid]||'',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('xom-chiqim-new-modal').style.display='none';
+  await supaFetch('POST',row,'',xomMap[pid]);
+  supaFetch('GET',null,'?order=created_at.desc',xomMap[pid]).then(function(d){
+    window['rows_xomChiqim_'+pid]=d||[];
+    renderXomChiqimNew(pid); renderXomOstatkaNew(pid,null);
+  });
+}
+
+async function savePartiyaChiqimNew(){
+  var nomiEl=document.getElementById('partiya-chiqim-new-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('partiya-chiqim-new-br').value||0,
+    nt:+document.getElementById('partiya-chiqim-new-nt').value||0,
+    sht:+document.getElementById('partiya-chiqim-new-sht').value||0,
+    kimdan:'Partiya',qaerga:'Bo\'yoqxona',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('partiya-chiqim-new-modal').style.display='none';
+  await supaFetch('POST',row,'','partiya_chiqim');
+  supaFetch('GET',null,'?order=created_at.desc','partiya_chiqim').then(function(d){
+    rows_partiyaChiqim=d||[]; renderPartiyaChiqimNew(); renderPartiyaOstatkaNew();
+  });
+}
+
+async function saveBoyoqChiqimNew(){
+  var nomiEl=document.getElementById('boyoq-chiqim-new-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('boyoq-chiqim-new-br').value||0,
+    nt:+document.getElementById('boyoq-chiqim-new-nt').value||0,
+    sht:+document.getElementById('boyoq-chiqim-new-sht').value||0,
+    kimdan:"Bo'yoqxona",qaerga:'Rulon Ombor',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('boyoq-chiqim-new-modal').style.display='none';
+  await supaFetch('POST',row,'','boyoq_chiqim');
+  supaFetch('GET',null,'?order=created_at.desc','boyoq_chiqim').then(function(d){
+    rows_boyoqChiqim=d||[]; renderBoyoqChiqimNew(); renderBoyoqOstatkaNew();
+  });
+}
+
+async function saveRulonChiqim(){
+  var nomiEl=document.getElementById('rulon-chiqim-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('rulon-chiqim-br').value||0,
+    nt:+document.getElementById('rulon-chiqim-nt').value||0,
+    sht:+document.getElementById('rulon-chiqim-sht').value||0,
+    kimdan:'Rulon Ombor',qaerga:'Yarim tayyor Ombor',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('rulon-chiqim-modal').style.display='none';
+  await supaFetch('POST',row,'','rulon_chiqim');
+  supaFetch('GET',null,'?order=created_at.desc','rulon_chiqim').then(function(d){
+    window['rows_rulonChiqim']=d||[]; renderRulonChiqim(); renderRulonOstatka();
+  });
+}
+
+async function saveYarimChiqim(){
+  var nomiEl=document.getElementById('yarim-chiqim-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var yarimMap={'a-yarim1':'aisha_yarim_chiqim','o-yarim1':'oqtosh_yarim1_chiqim','o-yarim2':'oqtosh_yarim2_chiqim'};
+  var pid=_yarimPid;
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('yarim-chiqim-br').value||0,
+    nt:+document.getElementById('yarim-chiqim-nt').value||0,
+    sht:+document.getElementById('yarim-chiqim-sht').value||0,
+    kimdan:'Yarim tayyor Ombor',qaerga:'Chevarxona',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('yarim-chiqim-modal').style.display='none';
+  await supaFetch('POST',row,'',yarimMap[pid]);
+  supaFetch('GET',null,'?order=created_at.desc',yarimMap[pid]).then(function(d){
+    window['rows_yarimChiqim_'+pid]=d||[]; renderYarimChiqim(pid); renderYarimOstatka(pid);
+  });
+}
+
+async function saveChevarChiqim(){
+  var nomiEl=document.getElementById('chevar-chiqim-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var chiqimMap={'a-chevar1':'aisha_chevar1_chiqim','a-chevar2':'aisha_chevar2_chiqim','o-chevar1':'oqtosh_chevar1_chiqim','o-chevar2':'oqtosh_chevar2_chiqim'};
+  var tmoMap={'a-chevar1':'Aisha TMO','a-chevar2':'Aisha TMO','o-chevar1':'Oqtosh TMO','o-chevar2':'Oqtosh TMO'};
+  var pid=_chevarChiqimPid;
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('chevar-chiqim-br').value||0,
+    nt:+document.getElementById('chevar-chiqim-nt').value||0,
+    sht:+document.getElementById('chevar-chiqim-sht').value||0,
+    kimdan:'Chevarxona',qaerga:tmoMap[pid]||'TMO',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('chevar-chiqim-modal').style.display='none';
+  await supaFetch('POST',row,'',chiqimMap[pid]);
+  supaFetch('GET',null,'?order=created_at.desc',chiqimMap[pid]).then(function(d){
+    window['rows_chevarChiqim_'+pid]=d||[]; renderChevarChiqim(pid); renderChevarOstatka(pid);
+  });
+}
+
+async function saveTmoChiqim(){
+  var nomiEl=document.getElementById('tmo-chiqim-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var tmoMap={'a-tmo':'aisha_tmo_chiqim','o-tmo':'oqtosh_tmo_chiqim'};
+  var pid=_tmoPid;
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('tmo-chiqim-br').value||0,
+    nt:+document.getElementById('tmo-chiqim-nt').value||0,
+    sht:+document.getElementById('tmo-chiqim-sht').value||0,
+    kimdan:pid==='a-tmo'?'Aisha TMO':'Oqtosh TMO',
+    qaerga:'Yuklama',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  document.getElementById('tmo-chiqim-modal').style.display='none';
+  await supaFetch('POST',row,'',tmoMap[pid]);
+  supaFetch('GET',null,'?order=created_at.desc',tmoMap[pid]).then(function(d){
+    window['rows_tmoChiqim_'+pid]=d||[]; renderTmoChiqim(pid); renderTmoOstatka(pid);
+  });
+}
+
+async function saveToquvKunlikChiqim(){
+  var nomiEl=document.getElementById('toquv-kunlik-nomi');
+  var nomi=nomiEl?nomiEl.value.trim():'';
+  if(!nomi){alert('Zakaz tanlang!');return;}
+  var row={
+    nomi:nomi,
+    br:+document.getElementById('toquv-kunlik-br').value||0,
+    nt:+document.getElementById('toquv-kunlik-nt').value||0,
+    sht:+document.getElementById('toquv-kunlik-sht').value||0,
+    kimdan:'To\'quv',qaerga:'Xom Ombor',
+    vaqt:new Date().toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})
+  };
+  var modal=document.getElementById('toquv-kunlik-chiqim-modal');
+  if(modal) modal.style.display='none';
+  await supaFetch('POST',row,'','toquv_chiqim');
+  supaFetch('GET',null,'?order=created_at.desc','toquv_chiqim').then(function(d){
+    rows_toquvChiqim=d||[];
+  });
+}
+
+
 // ===== LOGIN TIZIMI =====
 var _currentUser = null;
 
@@ -7182,28 +7522,285 @@ function renderTmoChiqim(pid){
   var e3=document.getElementById(pid+'-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
 }
 
-function renderTmoOstatka(pid){
-  var tbody=document.getElementById(pid+'-ostatka-tbody');
+function renderXomKirimNew(pid, qaerga){
+  var tbody=document.getElementById(pid+'-kirim-tbody');
   if(!tbody) return;
-  var rows=window['rows_tmoChiqim_'+pid]||[];
-  var grouped={};
-  rows.forEach(function(r){
-    if(!grouped[r.nomi]) grouped[r.nomi]={nomi:r.nomi,br:0,nt:0,sht:0};
-    grouped[r.nomi].br+=+r.br||0; grouped[r.nomi].nt+=+r.nt||0; grouped[r.nomi].sht+=+r.sht||0;
+  // Xom ombor kirimi = toquv chiqimi (qaerga = xom ombor nomi)
+  var qaergaMap={'a-xom-toyota':'Aisha Xom Ombor Toyota','a-xom-itema':'Aisha Xom Ombor Itema','o-xom':'Oqtosh Xom Ombor'};
+  var targetQaerga = qaerga || qaergaMap[pid] || '';
+  var toquvRows = rows_toquvChiqim || [];
+  var rows = toquvRows.filter(function(r){
+    return (r.qaerga||'') === targetQaerga;
   });
-  var arr=Object.values(grouped);
-  if(!arr.length){tbody.innerHTML='<tr><td colspan="5" style="padding:32px;text-align:center;color:#475569">Ostatka yo‘q</td></tr>';return;}
-  tbody.innerHTML=arr.map(function(r,i){
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="7" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
     var bg=i%2===0?'#16162a':'#1a1a2e';
     return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
       '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
-      '<td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
       '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
       '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
       '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#5eead4;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
       '</tr>';
   }).join('');
+  var e1=document.getElementById(pid+'-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
 }
+
+function renderPartiyaKirimNew(){
+  var tbody=document.getElementById('partiya-kirim-tbody');
+  if(!tbody) return;
+  var rows=rows_partiyaKirim||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById('partiya-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById('partiya-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById('partiya-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderBoyoqKirimNew(){
+  var tbody=document.getElementById('boyoq-kirim-tbody');
+  if(!tbody) return;
+  var rows=rows_boyoqKirim||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById('boyoq-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById('boyoq-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById('boyoq-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderToquvKunlikChiqim(pid){
+  var tbodyId = pid+'-chiqim-tbody';
+  var tbody=document.getElementById(tbodyId);
+  if(!tbody) return;
+  var filterMap={
+    'a-toquv-toyota':function(r){return (r.kimdan||'').includes('Toyota');},
+    'a-toquv-itema': function(r){return (r.kimdan||'').includes('Itema');},
+    'o-toquv':       function(r){return (r.kimdan||'').includes('Oqtosh');}
+  };
+  var rows=(rows_toquvChiqim||[]).filter(filterMap[pid]||function(){return true;});
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="9" style="padding:32px;text-align:center;color:#475569">Hozircha chiqim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '<td style="padding:10px;text-align:center">'+(isAdmin()?'<button data-rid="'+r.id+'" data-rtname="toquv_chiqim" onclick="_editChiqimFromRow(this)" style="background:#1e3a5f;border:none;color:#60a5fa;border-radius:6px;padding:4px 8px;cursor:pointer;font-size:11px">✏️</button>':'')+
+      '<button data-id="'+r.id+'" onclick="deleteToquvChiqim(this.dataset.id)" data-admin-only="1" style="'+(isAdmin()?'':'display:none;')+'background:#3f1e1e;border:none;color:#f87171;border-radius:6px;padding:4px 10px;cursor:pointer;font-size:12px">X</button></td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderChevarKirim(pid){
+  var tbody=document.getElementById(pid+'-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_chevarKirim_'+pid]||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderYarimKirim(pid){
+  var tbody=document.getElementById(pid+'-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_yarimKirim_'+pid]||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderRulonKirim(){
+  var tbody=document.getElementById('a-rulon-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_rulonKirim']||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="8" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;font-size:12px">'+(r.kimdan||'')+'</td>'+
+      '<td style="padding:10px;color:#94a3b8;font-size:12px">'+(r.qaerga||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById('a-rulon-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById('a-rulon-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById('a-rulon-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderChevarOstatkaFull(pid){
+  var tbody=document.getElementById(pid+'-ostatka-tbody');
+  if(!tbody) return;
+  var kirimRows=window['rows_chevarKirim_'+pid]||[];
+  var chiqimRows=window['rows_chevarChiqim_'+pid]||[];
+  var kGrp={},cGrp={};
+  kirimRows.forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br+=+r.br||0;kGrp[r.nomi].nt+=+r.nt||0;kGrp[r.nomi].sht+=+r.sht||0;});
+  chiqimRows.forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br+=+r.br||0;cGrp[r.nomi].nt+=+r.nt||0;cGrp[r.nomi].sht+=+r.sht||0;});
+  var allNomis=Object.keys(Object.assign({},kGrp,cGrp));
+  var totK={br:0,nt:0,sht:0},totC={br:0,nt:0,sht:0};
+  if(!allNomis.length){tbody.innerHTML='<tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Maʼlumot yoʼq</td></tr>';return;}
+  tbody.innerHTML=allNomis.map(function(nomi,i){
+    var k=kGrp[nomi]||{br:0,nt:0,sht:0};
+    var c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    var o={br:k.br-c.br,nt:k.nt-c.nt,sht:k.sht-c.sht};
+    totK.br+=k.br;totK.nt+=k.nt;totK.sht+=k.sht;
+    totC.br+=c.br;totC.nt+=c.nt;totC.sht+=c.sht;
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500;border-right:1px solid #2a2a45">'+nomi+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;border-right:1px solid #2a2a45">'+fmt(k.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45">'+fmt(o.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.sht)+'</td>'+
+      '</tr>';
+  }).join('');
+  var totO={br:totK.br-totC.br,nt:totK.nt-totC.nt,sht:totK.sht-totC.sht};
+  var upd={'k-br':totK.br,'k-nt':totK.nt,'k-sht':totK.sht,'o-br':totO.br,'o-nt':totO.nt,'o-sht':totO.sht,'c-br':totC.br,'c-nt':totC.nt,'c-sht':totC.sht};
+  Object.keys(upd).forEach(function(k){var el=document.getElementById(pid+'-ostatka-'+k);if(el)el.textContent=fmt(upd[k]);});
+}
+
+function renderTmoKirim(pid){
+  var tbody=document.getElementById(pid+'-kirim-tbody');
+  if(!tbody) return;
+  var rows=window['rows_tmoKirim_'+pid]||[];
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="padding:32px;text-align:center;color:#475569">Hozircha kirim yoʼq</td></tr>';return;}
+  tbody.innerHTML=rows.map(function(r,i){
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500">'+(r.nomi||'')+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#94a3b8;font-size:12px">'+(r.vaqt||'')+'</td>'+
+      '</tr>';
+  }).join('');
+  var e1=document.getElementById(pid+'-kirim-jami-br');if(e1)e1.textContent=fmt(rows.reduce(function(s,r){return s+(+r.br||0);},0));
+  var e2=document.getElementById(pid+'-kirim-jami-nt');if(e2)e2.textContent=fmt(rows.reduce(function(s,r){return s+(+r.nt||0);},0));
+  var e3=document.getElementById(pid+'-kirim-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
+}
+
+function renderTmoOstatka(pid){
+  var tbody=document.getElementById(pid+'-ostatka-tbody');
+  if(!tbody) return;
+  var kirimRows=window['rows_tmoKirim_'+pid]||[];
+  var chiqimRows=window['rows_tmoChiqim_'+pid]||[];
+  var kGrp={}, cGrp={};
+  kirimRows.forEach(function(r){
+    if(!kGrp[r.nomi]) kGrp[r.nomi]={br:0,nt:0,sht:0};
+    kGrp[r.nomi].br+=+r.br||0; kGrp[r.nomi].nt+=+r.nt||0; kGrp[r.nomi].sht+=+r.sht||0;
+  });
+  chiqimRows.forEach(function(r){
+    if(!cGrp[r.nomi]) cGrp[r.nomi]={br:0,nt:0,sht:0};
+    cGrp[r.nomi].br+=+r.br||0; cGrp[r.nomi].nt+=+r.nt||0; cGrp[r.nomi].sht+=+r.sht||0;
+  });
+  var allNomis=Object.keys(Object.assign({},kGrp,cGrp));
+  var totK={br:0,nt:0,sht:0}, totC={br:0,nt:0,sht:0};
+  if(!allNomis.length){
+    tbody.innerHTML='<tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Maʼlumot yoʼq</td></tr>';
+    ['k-br','k-nt','k-sht','o-br','o-nt','o-sht','c-br','c-nt','c-sht'].forEach(function(s){var el=document.getElementById(pid+'-ostatka-'+s);if(el)el.textContent='0';});
+    return;
+  }
+  tbody.innerHTML=allNomis.map(function(nomi,i){
+    var k=kGrp[nomi]||{br:0,nt:0,sht:0};
+    var c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    var o={br:k.br-c.br, nt:k.nt-c.nt, sht:k.sht-c.sht};
+    totK.br+=k.br; totK.nt+=k.nt; totK.sht+=k.sht;
+    totC.br+=c.br; totC.nt+=c.nt; totC.sht+=c.sht;
+    var bg=i%2===0?'#16162a':'#1a1a2e';
+    return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
+      '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500;border-right:1px solid #2a2a45">'+nomi+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;border-right:1px solid #2a2a45">'+fmt(k.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45">'+fmt(o.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.sht)+'</td>'+
+      '</tr>';
+  }).join('');
+  var totO={br:totK.br-totC.br,nt:totK.nt-totC.nt,sht:totK.sht-totC.sht};
+  var upd={'k-br':totK.br,'k-nt':totK.nt,'k-sht':totK.sht,'o-br':totO.br,'o-nt':totO.nt,'o-sht':totO.sht,'c-br':totC.br,'c-nt':totC.nt,'c-sht':totC.sht};
+  Object.keys(upd).forEach(function(k){var el=document.getElementById(pid+'-ostatka-'+k);if(el)el.textContent=fmt(upd[k]);});
+}
+
 
 // ===== CHEVAR RENDER =====
 var _chevarChiqimRows_map = {};
@@ -7483,27 +8080,48 @@ function renderXomChiqimNew(pid){
   var e3=document.getElementById(pid+'-jami-sht');if(e3)e3.textContent=fmt(rows.reduce(function(s,r){return s+(+r.sht||0);},0));
 }
 
-function renderXomOstatkaNew(pid, filtered){
+function renderXomOstatkaNew(pid, qaerga){
   var tbody=document.getElementById(pid+'-ostatka-tbody');
   if(!tbody) return;
-  var rows=filtered||(window['rows_xomChiqim_'+pid]||[]);
-  var grouped={};
-  rows.forEach(function(r){
-    if(!grouped[r.nomi]) grouped[r.nomi]={nomi:r.nomi,br:0,nt:0,sht:0};
-    grouped[r.nomi].br+=+r.br||0; grouped[r.nomi].nt+=+r.nt||0; grouped[r.nomi].sht+=+r.sht||0;
-  });
-  var arr=Object.values(grouped);
-  if(!arr.length){tbody.innerHTML='<tr><td colspan="5" style="padding:32px;text-align:center;color:#475569">Ostatka yo‘q</td></tr>';return;}
-  tbody.innerHTML=arr.map(function(r,i){
+  // Kirim = toquv chiqimi (qaerga = xom ombor)
+  var qaergaMap={'a-xom-toyota':'Aisha Xom Ombor Toyota','a-xom-itema':'Aisha Xom Ombor Itema','o-xom':'Oqtosh Xom Ombor'};
+  var targetQaerga = qaerga || qaergaMap[pid] || '';
+  var kirimRows = (rows_toquvChiqim||[]).filter(function(r){return (r.qaerga||'')===targetQaerga;});
+  var chiqimRows = window['rows_xomChiqim_'+pid]||[];
+  var kGrp={},cGrp={};
+  kirimRows.forEach(function(r){if(!kGrp[r.nomi])kGrp[r.nomi]={br:0,nt:0,sht:0};kGrp[r.nomi].br+=+r.br||0;kGrp[r.nomi].nt+=+r.nt||0;kGrp[r.nomi].sht+=+r.sht||0;});
+  chiqimRows.forEach(function(r){if(!cGrp[r.nomi])cGrp[r.nomi]={br:0,nt:0,sht:0};cGrp[r.nomi].br+=+r.br||0;cGrp[r.nomi].nt+=+r.nt||0;cGrp[r.nomi].sht+=+r.sht||0;});
+  var allNomis=Object.keys(Object.assign({},kGrp,cGrp));
+  var totK={br:0,nt:0,sht:0},totC={br:0,nt:0,sht:0};
+  if(!allNomis.length){tbody.innerHTML='<tr><td colspan="11" style="padding:32px;text-align:center;color:#475569">Maʼlumot yoʼq</td></tr>';
+    ['k-br','k-nt','k-sht','o-br','o-nt','o-sht','c-br','c-nt','c-sht'].forEach(function(s){var el=document.getElementById(pid+'-ostatka-'+s);if(el)el.textContent='0';});
+    return;
+  }
+  tbody.innerHTML=allNomis.map(function(nomi,i){
+    var k=kGrp[nomi]||{br:0,nt:0,sht:0};
+    var c=cGrp[nomi]||{br:0,nt:0,sht:0};
+    var o={br:k.br-c.br,nt:k.nt-c.nt,sht:k.sht-c.sht};
+    totK.br+=k.br;totK.nt+=k.nt;totK.sht+=k.sht;
+    totC.br+=c.br;totC.nt+=c.nt;totC.sht+=c.sht;
     var bg=i%2===0?'#16162a':'#1a1a2e';
     return '<tr style="border-bottom:1px solid #1e1e35;background:'+bg+'">'+
       '<td style="padding:10px;text-align:center;color:#64748b">'+(i+1)+'</td>'+
-      '<td style="padding:10px;color:#fff;font-weight:500">'+r.nomi+'</td>'+
-      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.br)+'</td>'+
-      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.nt)+'</td>'+
-      '<td style="padding:10px;text-align:center;color:#e2e8f0">'+fmt(r.sht)+'</td>'+
+      '<td style="padding:10px;color:#fff;font-weight:500;border-right:1px solid #2a2a45">'+nomi+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8">'+fmt(k.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#818cf8;border-right:1px solid #2a2a45">'+fmt(k.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d">'+fmt(o.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#fcd34d;border-right:1px solid #2a2a45">'+fmt(o.sht)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.br)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.nt)+'</td>'+
+      '<td style="padding:10px;text-align:center;color:#f87171">'+fmt(c.sht)+'</td>'+
       '</tr>';
   }).join('');
+  var totO={br:totK.br-totC.br,nt:totK.nt-totC.nt,sht:totK.sht-totC.sht};
+  var upd={'k-br':totK.br,'k-nt':totK.nt,'k-sht':totK.sht,'o-br':totO.br,'o-nt':totO.nt,'o-sht':totO.sht,'c-br':totC.br,'c-nt':totC.nt,'c-sht':totC.sht};
+  Object.keys(upd).forEach(function(k){var el=document.getElementById(pid+'-ostatka-'+k);if(el)el.textContent=fmt(upd[k]);});
+
 }
 
 // ===== CARDS =====
