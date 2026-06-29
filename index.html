@@ -7062,9 +7062,15 @@ function _renderOcCard(elId, rows, sana){
 function deleteToquvChiqim(id){
   if(!isAdmin()) return;
   if(!confirm('O\'chirilsinmi?')) return;
-  var tmoChiqimMap={'a-tmo':'aisha_tmo_chiqim','o-tmo':'oqtosh_tmo_chiqim'};
   supaFetch('DELETE',null,'?id=eq.'+id,'toquv_chiqim').then(function(){
     rows_toquvChiqim=(rows_toquvChiqim||[]).filter(function(r){return r.id!==+id;});
+    // Qaysi sahifada ekanini aniqlab render qilamiz
+    var active=document.querySelector('.page.active');
+    if(!active) return;
+    var pid=active.id;
+    if(pid==='a-toquv-toyota-chiqim') renderToquvKunlikChiqim('a-toquv-toyota');
+    else if(pid==='a-toquv-itema-chiqim') renderToquvKunlikChiqim('a-toquv-itema');
+    else if(pid==='o-toquv-chiqim') renderToquvKunlikChiqim('o-toquv');
   });
 }
 
@@ -7648,6 +7654,9 @@ function isAdmin(){ return _currentUser && _currentUser.bolimlar.indexOf('admin'
 function canEdit(bolim){
   if(!_currentUser) return false;
   if(isAdmin()) return true;
+  // bolimlar massivida to'g'ridan bolim nomi bor
+  if(_currentUser.bolimlar.indexOf(bolim)!==-1) return true;
+  // yoki login nomi orqali
   var loginNom = _pidToLogin[bolim]||bolim;
   return _currentUser.bolimlar.indexOf(loginNom)!==-1;
 }
